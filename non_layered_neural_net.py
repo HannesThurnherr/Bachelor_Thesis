@@ -12,17 +12,20 @@ tests:
 """
 
 def dist(a,b):
-    d = np.sqrt(np.square(a[1]-b[1])+np.square(a[0]-b[0]))
+    d = np.linalg.norm(np.arry[a,b])
+    #d = np.sqrt(np.square(a[1]-b[1])+np.square(a[0]-b[0]))
     return d
 
 class nlnn:
 
     def __init__(self, hidden_neurons = 100, input_neurons = 784, output_neurons = 2):
         self.hidden_neurons = hidden_neurons
-        self.adj_matrix = np.zeros((hidden_neurons + input_neurons + output_neurons, hidden_neurons + input_neurons + output_neurons))
+        self.dim_matrix = hidden_neurons + input_neurons + output_neurons
+        self.adj_matrix = np.zeros((self.dim_matrix, self.dim_matrix))
         self.input_neurons = input_neurons
         self.output_neurons = output_neurons
-        self.neuron_values = np.zeros(hidden_neurons + input_neurons + output_neurons)
+        self.neuron_values = np.zeros(self.dim_matrix)
+
 
     def initialise_structure(self, connection_probability_dropoff = 1, connection_probabily_scalar = 1):
         space_size = 1
@@ -30,7 +33,6 @@ class nlnn:
         output_n_coord = np.zeros((self.output_neurons, 2))
         #Initializing the positions of the neurons in the input and output layer
         for i in range(self.input_neurons):
-            input_n_coord[i][0] = 0
             input_n_coord[i][1] = (space_size/10)+space_size*0.8/self.input_neurons*i+0.8*space_size/self.input_neurons/2
         for i in range(self.output_neurons):
             output_n_coord[i][0] = space_size
@@ -56,8 +58,8 @@ class nlnn:
                         connection_count+=1
 
         #connecting hidden neurons to eachother
-        for i in range(self.input_neurons,self.input_neurons + self.hidden_neurons):
-            for j in range(self.input_neurons, self.input_neurons + self.hidden_neurons):
+        for i in range(self.dim_matrix):
+            for j in range(self.dim_matrix):
                 if i != j:
                     if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar:
                         self.adj_matrix[i][j] = (np.random.rand() * 4) - 2   # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
@@ -65,7 +67,7 @@ class nlnn:
 
         #connecting hidden neurons to output layer
         for i in range(self.input_neurons,self.input_neurons + self.hidden_neurons):
-            for j in range(self.input_neurons+ self.hidden_neurons, self.input_neurons + self.hidden_neurons + self.output_neurons):
+            for j in range(self.input_neurons+ self.hidden_neurons, self.dim_matrix):
                 if i != j:
                     if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar * 2:
                         self.adj_matrix[i][j] = (np.random.rand() * 4) - 2   # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
@@ -76,8 +78,8 @@ class nlnn:
 
 
     def display_net(self):
-        for i in range(self.input_neurons + self.hidden_neurons + self.output_neurons):
-            for j in range(self.input_neurons + self.hidden_neurons + self.output_neurons):
+        for i in range(self.dim_matrix):
+            for j in range(self.dim_matrix):
                 if self.adj_matrix[j][i]!=0:
                     plt.plot([self.coord[j][0],self.coord[i][0]],[self.coord[j][1],self.coord[i][1]],linewidth = 0.7 , color= [0, 1 * (1 - abs(self.adj_matrix[j][i]) / 4), 0.2 * (abs(self.adj_matrix[j][i]) / 4)])
         plt.scatter([i[0] for i in self.coord], [i[1] for i in self.coord],  s = 3, color = "red")
@@ -101,7 +103,7 @@ class nlnn:
         for i in range(steps):
             self.prop_step(x)
         result = self.get_output()
-        self.neuron_values = np.zeros(len(self.neuron_values))
+        self.neuron_values = np.zeros_like(self.neuron_values)  
         return result
 
     def mutate_weights(self, range):
