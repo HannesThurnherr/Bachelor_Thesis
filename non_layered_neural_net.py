@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy
 import unittest
 """
 TDL:
@@ -12,13 +13,13 @@ tests:
 """
 
 def dist(a,b):
-    d = np.linalg.norm(np.arry[a,b])
-    #d = np.sqrt(np.square(a[1]-b[1])+np.square(a[0]-b[0]))
+    #   d = np.linalg.norm(np.array[a,b])
+    d = np.sqrt(np.square(a[1]-b[1])+np.square(a[0]-b[0]))
     return d
 
 class nlnn:
 
-    def __init__(self, hidden_neurons = 100, input_neurons = 784, output_neurons = 2):
+    def __init__(self, hidden_neurons = 400, input_neurons = 784, output_neurons = 2):
         self.hidden_neurons = hidden_neurons
         self.dim_matrix = hidden_neurons + input_neurons + output_neurons
         self.adj_matrix = np.zeros((self.dim_matrix, self.dim_matrix))
@@ -69,7 +70,7 @@ class nlnn:
         for i in range(self.input_neurons,self.input_neurons + self.hidden_neurons):
             for j in range(self.input_neurons+ self.hidden_neurons, self.dim_matrix):
                 if i != j:
-                    if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar * 2:
+                    if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar * 20:
                         self.adj_matrix[i][j] = (np.random.rand() * 4) - 2   # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
                         connection_count += 1
 
@@ -86,32 +87,34 @@ class nlnn:
         plt.show()
 
     def sigmoid(self, vector):
-        return 1 / (1 + np.exp(-vector))*2-1
+        return scipy.special.expit(vector)*2-1
 
     def prop_step(self, x):
         self.neuron_values = self.sigmoid(np.dot(self.adj_matrix.T, self.neuron_values))
-        for i in range(len(x)):
-            self.neuron_values[i] = x[i]
+        self.neuron_values[:len(x)] = x
 
     def get_output(self):
         return self.neuron_values[-self.output_neurons:]
 
+
     def predict(self, x, steps):
         assert x.shape == (self.input_neurons,) , ("input does not have the right shape ", x.shape, " vs. ", self.input_neurons)
-        for i in range(len(x)):
-            self.neuron_values[i] = x[i]
+        self.neuron_values[:len(x)] = x
         for i in range(steps):
             self.prop_step(x)
         result = self.get_output()
-        self.neuron_values = np.zeros_like(self.neuron_values)  
-        return result
+        prediction = np.zeros(self.output_neurons)
+        prediction[np.argmax(result)]=1
+        self.neuron_values = np.zeros_like(self.neuron_values)
+        return prediction,result
 
-    def mutate_weights(self, range):
+    def mutate_weights(self, mutation_range):
         new_matrix = np.zeros(self.adj_matrix.shape)
         for i in range(len(self.adj_matrix)):
             for j in range(len(self.adj_matrix[i])):
                 if self.adj_matrix[i][j]!=0:
-                    new_matrix[i][j] = self.adj_matrix[i][j]+(np.random.rand()*2-1)*range
+                    new_matrix[i][j] = self.adj_matrix[i][j]+(np.random.rand()*2-1)*mutation_range
+        
         return new_matrix
 
     def reproduce(self, amt_children, mutation_range):
@@ -155,17 +158,15 @@ class nlnn:
             [0, 0, 0, 0, 0, 1.2],
             [0, 0, 0, 0, 0, 0]
         ])
-
         net.adj_matrix = weights
-        net.display_net()
-        #net.display_net()
+
         # Create test inputs
         x = np.array([0.2, 0.8])
 
         # Expected output
         expected_output = np.array([-0.08909415])
         # Test the predict function
-        np.testing.assert_allclose(net.predict(x, 2), expected_output, rtol=1e-5, atol=0)
+        np.testing.assert_allclose(net.predict(x, 2)[1], expected_output, rtol=1e-5, atol=0)
 
     def tests(self):
         self.test_sigmoid()
@@ -181,4 +182,4 @@ net.initialise_structure(connection_probability_dropoff=3, connection_probabily_
 
 net.tests()
 
-
+print(net.mutate_weights(0.1))
