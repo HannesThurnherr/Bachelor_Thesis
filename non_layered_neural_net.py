@@ -114,7 +114,7 @@ class nlnn:
             for j in range(len(self.adj_matrix[i])):
                 if self.adj_matrix[i][j]!=0:
                     new_matrix[i][j] = self.adj_matrix[i][j]+(np.random.rand()*2-1)*mutation_range
-        
+
         return new_matrix
 
     def reproduce(self, amt_children, mutation_range):
@@ -177,9 +177,9 @@ class nlnn:
 net = nlnn(hidden_neurons= 1000, input_neurons = 3, output_neurons = 2)
 net.initialise_structure(connection_probability_dropoff=3, connection_probabily_scalar=0.00003)
 
-#for i in range(10):
-    #print(net.predict(np.array([0.2, 0.1, -0.3]), i))
 
-net.tests()
+#net.tests()
+
+
 
 print(net.mutate_weights(0.1))
