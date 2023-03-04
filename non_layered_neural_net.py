@@ -58,8 +58,7 @@ class nlnn:
         for i in range(self.input_neurons):
             for j in range(self.input_neurons, self.input_neurons + self.hidden_neurons):
                 if i != j:
-                    if np.random.rand() < 1 / (dist(coord[i], coord[
-                        j]) ** connection_probability_dropoff) * connection_probabily_scalar * 50:
+                    if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar * 50:
                         self.adj_matrix[i][j] = (
                                                             np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
                         connection_count += 1
@@ -68,18 +67,15 @@ class nlnn:
         for i in range(self.dim_matrix):
             for j in range(self.dim_matrix):
                 if i != j:
-                    if np.random.rand() < 1 / (
-                            dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar:
-                        self.adj_matrix[i][j] = (
-                                                            np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
+                    if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar:
+                        self.adj_matrix[i][j] = (np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
                         connection_count += 1
 
         # connecting hidden neurons to output layer
         for i in range(self.input_neurons, self.input_neurons + self.hidden_neurons):
             for j in range(self.input_neurons + self.hidden_neurons, self.dim_matrix):
                 if i != j:
-                    if np.random.rand() < 1 / (dist(coord[i], coord[
-                        j]) ** connection_probability_dropoff) * connection_probabily_scalar * 20:
+                    if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar * 20:
                         self.adj_matrix[i][j] = (
                                                             np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
                         connection_count += 1
@@ -142,10 +138,8 @@ class nlnn:
             self.prop_step(x)
         result = self.get_output()
         prediction = np.argmax(result, axis=1)
-        num_unique_values = len(np.unique(prediction))
-        prediction = np.eye(num_unique_values)[prediction]
+        prediction = np.eye(self.output_neurons)[prediction]
         self.neuron_values = np.zeros_like(self.neuron_values)
-        # print("prediction shape:",prediction.shape)
         return prediction, result
 
     def mutate_weights(self, mutation_range):
@@ -214,5 +208,11 @@ class nlnn:
         self.test_predict()
 
 
-net = nlnn(hidden_neurons=1000, input_neurons=3, output_neurons=2)
+net = nlnn(hidden_neurons=1000, input_neurons=3, output_neurons=3)
 net.initialise_structure(connection_probability_dropoff=3, connection_probabily_scalar=0.00003)
+
+#net.display_net()
+#print(net.predict(np.random.rand(20,3), 20)[0])
+
+#plt.plot(np.random.randint(10, size=(5, 10)).T)
+#plt.show()
