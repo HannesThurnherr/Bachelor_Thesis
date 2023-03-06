@@ -37,11 +37,11 @@ class nlnn:
         # Initializing the positions of the neurons in the input and output layer
         for i in range(self.input_neurons):
             input_n_coord[i][1] = (
-                                              space_size / 10) + space_size * 0.8 / self.input_neurons * i + 0.8 * space_size / self.input_neurons / 2
+                                          space_size / 10) + space_size * 0.8 / self.input_neurons * i + 0.8 * space_size / self.input_neurons / 2
         for i in range(self.output_neurons):
             output_n_coord[i][0] = space_size
             output_n_coord[i][1] = (
-                                               space_size / 10) + space_size * 0.8 / self.output_neurons * i + 0.8 * space_size / self.output_neurons / 2
+                                           space_size / 10) + space_size * 0.8 / self.output_neurons * i + 0.8 * space_size / self.output_neurons / 2
 
         hidden_n_coord = np.zeros((self.hidden_neurons, 2))
         # Initializing the positions of the hidden neurons
@@ -58,16 +58,17 @@ class nlnn:
         for i in range(self.input_neurons):
             for j in range(self.input_neurons, self.input_neurons + self.hidden_neurons):
                 if i != j:
-                    if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar * 50:
-                        self.adj_matrix[i][j] = (
-                                                            np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
+                    if np.random.rand() < 1 / (dist(coord[i], coord[
+                        j]) ** connection_probability_dropoff) * connection_probabily_scalar * 50:
+                        self.adj_matrix[i][j] = (np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
                         connection_count += 1
 
         # connecting hidden neurons to eachother
         for i in range(self.dim_matrix):
             for j in range(self.dim_matrix):
                 if i != j:
-                    if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar:
+                    if np.random.rand() < 1 / (
+                            dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar:
                         self.adj_matrix[i][j] = (np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
                         connection_count += 1
 
@@ -76,9 +77,15 @@ class nlnn:
             for j in range(self.input_neurons + self.hidden_neurons, self.dim_matrix):
                 if i != j:
                     if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar * 20:
-                        self.adj_matrix[i][j] = (
-                                                            np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
+                        self.adj_matrix[i][j] = (np.random.rand() * 4) - 2  # weight initialisation in range (-4,4) based on https://stats.stackexchange.com/questions/47590/what-are-good-initial-weights-in-a-neural-network#:~:text=I%20have%20just%20heard%2C%20that,inputs%20to%20a%20given%20neuron.
                         connection_count += 1
+
+        print(self.dim_matrix)
+        self.display_net()
+        self.remove_unconnected_neurons()
+        self.neuron_values = np.zeros(self.dim_matrix)
+        self.display_net()
+        print(self.dim_matrix)
 
     def initialise_randomly(self):
         space_size = 1
@@ -86,12 +93,10 @@ class nlnn:
         output_n_coord = np.zeros((self.output_neurons, 2))
         # Initializing the positions of the neurons in the input and output layer (for displaying the matrix
         for i in range(self.input_neurons):
-            input_n_coord[i][1] = (
-                                          space_size / 10) + space_size * 0.8 / self.input_neurons * i + 0.8 * space_size / self.input_neurons / 2
+            input_n_coord[i][1] = (space_size / 10) + space_size * 0.8 / self.input_neurons * i + 0.8 * space_size / self.input_neurons / 2
         for i in range(self.output_neurons):
             output_n_coord[i][0] = space_size
-            output_n_coord[i][1] = (
-                                           space_size / 10) + space_size * 0.8 / self.output_neurons * i + 0.8 * space_size / self.output_neurons / 2
+            output_n_coord[i][1] = (space_size / 10) + space_size * 0.8 / self.output_neurons * i + 0.8 * space_size / self.output_neurons / 2
 
         hidden_n_coord = np.zeros((self.hidden_neurons, 2))
         # Initializing the positions of the hidden neurons
@@ -108,6 +113,10 @@ class nlnn:
             for j in range(self.dim_matrix):
                 if np.random.rand() < 0.0554:
                     self.adj_matrix[i][j] = (np.random.rand() * 4) - 2
+        print("before", self.dim_matrix)
+        self.remove_unconnected_neurons()
+        self.neuron_values = np.zeros(self.dim_matrix)
+        print("after", self.dim_matrix)
 
     def display_net(self):
         plt.scatter([i[0] for i in self.coord], [i[1] for i in self.coord], s=3, color="red")
@@ -115,10 +124,38 @@ class nlnn:
             for j in range(self.dim_matrix):
                 if self.adj_matrix[j][i] != 0:
                     plt.plot([self.coord[j][0], self.coord[i][0]], [self.coord[j][1], self.coord[i][1]], linewidth=0.7,
-                             color=[0, 1 * (1 - abs(self.adj_matrix[j][i]) / 4),
-                                    0.2 * (abs(self.adj_matrix[j][i]) / 4)])
+                             color=[0, 1  ,0])
         plt.scatter([i[0] for i in self.coord], [i[1] for i in self.coord], s=3, color="red")
         plt.show()
+
+    def remove_unconnected_neurons(self):
+        for i in range(len(self.adj_matrix)):
+            if i < len(self.adj_matrix):
+                if not np.any(self.adj_matrix[i]):
+                    print(i)
+                    np.delete(self.coord, i)
+                    np.delete(self.adj_matrix, i, 0)
+                    np.delete(self.adj_matrix, i, 1)
+                    if i < self.input_neurons:
+                        self.input_neurons -= 1
+                    elif i < self.input_neurons + self.hidden_neurons:
+                        self.input_neurons -= 1
+                    else:
+                        self.output_neurons -= 1
+                    i -= 1
+                elif not np.any(self.adj_matrix.T[i]):
+                    print(i)
+                    np.delete(self.coord, i)
+                    np.delete(self.adj_matrix, i, 0)
+                    np.delete(self.adj_matrix, i, 1)
+                    if i < self.input_neurons:
+                        self.input_neurons -= 1
+                    elif i < self.input_neurons + self.hidden_neurons:
+                        self.input_neurons -= 1
+                    else:
+                        self.output_neurons -= 1
+                    i -= 1
+        self.dim_matrix = self.hidden_neurons + self.input_neurons + self.output_neurons
 
     def sigmoid(self, vector):
         return scipy.special.expit(vector) * 2 - 1
@@ -157,6 +194,7 @@ class nlnn:
             new_net = nlnn(hidden_neurons=self.hidden_neurons, input_neurons=self.input_neurons,
                            output_neurons=self.output_neurons)
             new_net.adj_matrix = self.mutate_weights(mutation_range)
+            new_net.coord = self.coord
             offspring.append(new_net)
         return offspring
 
@@ -208,11 +246,11 @@ class nlnn:
         self.test_predict()
 
 
-net = nlnn(hidden_neurons=1000, input_neurons=3, output_neurons=3)
+net = nlnn(hidden_neurons=10, input_neurons=3, output_neurons=3)
 net.initialise_structure(connection_probability_dropoff=3, connection_probabily_scalar=0.00003)
 
-#net.display_net()
-#print(net.predict(np.random.rand(20,3), 20)[0])
+# net.display_net()
+# print(net.predict(np.random.rand(20,3), 20)[0])
 
-#plt.plot(np.random.randint(10, size=(5, 10)).T)
-#plt.show()
+# plt.plot(np.random.randint(10, size=(5, 10)).T)
+# plt.show()
