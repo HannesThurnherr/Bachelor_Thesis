@@ -2,7 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 from scipy.sparse import csr_matrix, identity
+import sys
 
+def loading_bar(name, max_progress, current_progress):
+    percent = (float(current_progress )/ float(max_progress)) * 100
+    bar_length = 100.0
+    filled_length = int(bar_length * float(current_progress) / float(max_progress))
+    bar = '·' * filled_length +str(current_progress) +' ' * int(bar_length - filled_length)
+    sys.stdout.write(f'\r{name}: {percent:.0f}% |{bar}| {max_progress}')
+    sys.stdout.flush()
 
 def dist(a, b):
     d = np.linalg.norm(a - b)
@@ -21,10 +29,11 @@ class nlnn:
         self.output_neurons = output_neurons
         self.neuron_values = np.zeros(self.dim_matrix)
 
-    def initialise_structure(self, connection_probability_dropoff=1.0, connection_probabily_scalar=1.0, input_connection_prob_multiplyer = 50.0, output_connection_prob_multiplyer = 30.0):
+    def initialise_structure(self, connection_probability_dropoff=1.0, connection_probabily_scalar=1.0, input_connection_prob_multiplyer = 50.0, output_connection_prob_multiplyer = 30.0, vocal = False):
         space_size = 1
         input_n_coord = np.zeros((self.input_neurons, 2))
         output_n_coord = np.zeros((self.output_neurons, 2))
+
         # Initializing the positions of the neurons in the input and output layer
         for i in range(self.input_neurons):
             input_n_coord[i][1] = (space_size / 10) + space_size * 0.8 / self.input_neurons * i + 0.8 * space_size / self.input_neurons / 2
@@ -53,6 +62,8 @@ class nlnn:
 
         # connecting hidden neurons to eachother
         for i in range(self.input_neurons, self.input_neurons + self.hidden_neurons):
+            if vocal:
+                loading_bar("initalising network", self.input_neurons + self.hidden_neurons-self.input_neurons, i-self.input_neurons)
             for j in range(self.input_neurons, self.input_neurons + self.hidden_neurons):
                 if i != j:
                     if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar:
@@ -61,14 +72,16 @@ class nlnn:
 
         # connecting hidden neurons to output layer
         for i in range(self.input_neurons, self.input_neurons + self.hidden_neurons):
+
             for j in range(self.input_neurons + self.hidden_neurons, self.dim_matrix):
                 if i != j:
                     if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** connection_probability_dropoff) * connection_probabily_scalar * output_connection_prob_multiplyer:
                         self.adj_matrix[i][j] = (np.random.rand() * 4) - 2
                         connection_count += 1
+
         self.adj_matrix = csr_matrix(self.adj_matrix)
 
-    def initialise_structure_n_closest(self, hidden_neuron_connections = 5, input_neuron_connections = 10, output_neuron_connections = 10):
+    def initialise_structure_n_closest(self, hidden_neuron_connections = 7, input_neuron_connections = 10, output_neuron_connections = 10):
         space_size = 1
         input_n_coord = np.zeros((self.input_neurons, 2))
         output_n_coord = np.zeros((self.output_neurons, 2))
@@ -105,18 +118,24 @@ class nlnn:
                 closest_indices = closest_indices[closest_indices != i]
 
             # Connect the neuron to its n closest neighbors
-            self.adj_matrix[i, closest_indices] = (np.random.rand() * 4) - 2
+            if i >= self.input_neurons+self.hidden_neurons:
+                self.adj_matrix[closest_indices, i] = (np.random.rand() * 4) - 2
+            else:
+                self.adj_matrix[i, closest_indices] = (np.random.rand() * 4) - 2
         self.adj_matrix = csr_matrix(self.adj_matrix)
 
     def display_net(self):
-        self.adj_matrix = self.adj_matrix.toarray()
+        try:
+            self.adj_matrix = self.adj_matrix.toarray()
+        except:
+            pass
         plt.scatter([i[0] for i in self.coord], [i[1] for i in self.coord], s=3, color="red")
         for i in range(self.dim_matrix):
             for j in range(self.dim_matrix):
                 if self.adj_matrix[j][i] != 0:
-                    plt.plot([self.coord[j][0], self.coord[i][0]], [self.coord[j][1], self.coord[i][1]], linewidth=0.7,
-                             color=[0, 1, 0])
-        plt.scatter([i[0] for i in self.coord], [i[1] for i in self.coord], s=3, color="red")
+                    plt.arrow(self.coord[j][0], self.coord[j][1], self.coord[i][0]-self.coord[j][0], self.coord[i][1]-self.coord[j][1], alpha = 0.2, linewidth=0.7)
+                    #plt.plot([self.coord[j][0], self.coord[i][0]], [self.coord[j][1], self.coord[i][1]], linewidth=0.7, color=[0, 1, 0])
+        #plt.scatter([i[0] for i in self.coord], [i[1] for i in self.coord], s=3, color="red")
         plt.show()
         self.adj_matrix = csr_matrix(self.adj_matrix)
 
@@ -185,26 +204,30 @@ class nlnn:
     def get_output(self):
         return self.neuron_values[:, -self.output_neurons:]
 
-    def predict_sparse(self, x, steps):
+    def predict_sparse(self, x, steps, activation_function = "leaky_relu"):
         self.neuron_values = np.zeros((len(x), self.dim_matrix))
         self.neuron_values[:, :x.shape[1]] = x
         for i in range(steps):
-            self.prop_step_sparse(x)
+            self.prop_step_sparse(x, activation_function = activation_function)
         result = self.get_output()
         prediction = np.argmax(result, axis=1)
         prediction = np.eye(self.output_neurons)[prediction]
         self.neuron_values = np.zeros_like(self.neuron_values)
         return prediction, result
 
-    def predict(self, x, steps):
-        self.adj_matrix = self.adj_matrix.toarray()
+    def predict(self, x, steps, activation_function = "leaky_relu"):
+        try:
+            self.adj_matrix = self.adj_matrix.toarray()
+        except:
+            pass
         self.neuron_values = np.zeros((len(x), self.dim_matrix))
         self.neuron_values[:, :x.shape[1]] = x
         for i in range(steps):
-            self.prop_step(x)
+            self.prop_step(x, activation_function = activation_function)
         result = self.get_output()
         prediction = np.argmax(result, axis=1)
         prediction = np.eye(self.output_neurons)[prediction]
+        #print(self.neuron_values)
         self.neuron_values = np.zeros_like(self.neuron_values)
         self.adj_matrix = csr_matrix(self.adj_matrix)
         return prediction, result
@@ -217,7 +240,10 @@ class nlnn:
         return new_matrix
 
     def reproduce(self, amt_children, mutation_range):
-        self.adj_matrix = self.adj_matrix.toarray()
+        try:
+            self.adj_matrix = self.adj_matrix.toarray()
+        except:
+            pass
         offspring = []
         for i in range(amt_children):
             new_net = nlnn(hidden_neurons=self.hidden_neurons, input_neurons=self.input_neurons, output_neurons=self.output_neurons)
@@ -276,10 +302,10 @@ class nlnn:
         self.test_predict()
 
 
-net = nlnn(hidden_neurons=100, input_neurons=3, output_neurons=3)
+net = nlnn(hidden_neurons=300, input_neurons=3, output_neurons=2)
 net.initialise_structure_n_closest(hidden_neuron_connections=10)
 #net.initialise_structure(connection_probability_dropoff=3, connection_probabily_scalar=0.0003)
-net.display_net()
+#net.display_net()
 
-print(net.predict(np.array([[2,1,4]]), 8), 0)
-print(net.predict_sparse(np.array([[2,1,4]]), 8), 0)
+#print(net.predict(np.array([[2,1,4]]), 16), 0)
+#print(net.predict_sparse(np.array([[2,1,4]]), 16), 0)

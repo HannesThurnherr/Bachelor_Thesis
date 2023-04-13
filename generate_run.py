@@ -15,11 +15,11 @@ def generate_run(run, default = False):
     inference_steps = 8 #between 4 and 20
 
     n_closes_neurons_connection_probability = "connection_prob"  #alternative: "n_closest"
-    activation_function = "sigmoid"  #alteratives: relu, leaky_relu
+    activation_function = "leaky_relu"  #alteratives: relu, leaky_relu
 
     generation_size = 12
     n_survivors = 3 #integer between 1 and the generation_size
-    mutation_range = "dynamic" #dynamic if the stochastic_mutation_range is "yes" otherwise a random value between 0 and 5 biased towards small values
+    mutation_range = 0.1 # a random value between 0 and 5 biased towards small values
     training_set_size = 1000 #keep this at 1000
     mutation_range_reducing_interval = "none" #this value should only be returned when the reducing_mutation_range variable is "yes"
     mutation_range_reducing_factor = "none" #this value should only be returned when the reducing_mutation_range variable is "yes"
@@ -68,25 +68,18 @@ def generate_run(run, default = False):
         "output_neuron_connections": np.random.randint(5, 31),
         "inference_steps": np.random.randint(4, 21),
         "n_closes_neurons_connection_probability": np.random.choice(["connection_prob", "n_closest"]),
-        "activation_function": np.random.choice(["sigmoid", "relu", "leaky_relu"]),
+        "activation_function": "leaky_relu",#np.random.choice(["sigmoid", "relu", "leaky_relu"]),
         "generation_size": 12,
         "n_survivors": np.random.randint(1, 13),
-        "mutation_range": "dynamic",
         "training_set_size": 1000,
-        "mutation_range_reducing_interval": "none",
-        "mutation_range_reducing_factor": "none",
         "reducing_mutaiton_range": np.random.choice(["yes", "no"]),
         "stochastic_mutation_range": np.random.choice(["yes", "no"]),
         "multiple_training_sets": np.random.choice(["yes", "no"]),
-        "allow_topological_modification": np.random.choice(["yes", "no"])
+        "allow_topological_modification": np.random.choice(["yes", "no"]),
+        "mutation_range" : np.random.uniform(0, 5),
+        "mutation_range_reducing_interval" : np.random.randint(5, 100),
+        "mutation_range_reducing_factor" : np.random.uniform(0.1, 1)
     }
-
-    if config["stochastic_mutation_range"] == "no":
-        config["mutation_range"] = np.random.uniform(0, 5)
-
-    if config["reducing_mutaiton_range"] == "yes":
-        config["mutation_range_reducing_interval"] = np.random.uniform(0.1, 1)
-        config["mutation_range_reducing_factor"] = np.random.uniform(0.1, 1)
 
     return config
 
