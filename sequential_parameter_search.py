@@ -37,7 +37,8 @@ from non_layered_neural_net import nlnn
 
 
 #Run_hyperparameters
-training_run = int(sys.argv[0])
+
+training_run = int(sys.argv[1])
 neuron_count=300
 connection_probability_dropoff=3
 connection_probability_scalar=0.00003
@@ -53,7 +54,7 @@ inference_steps = 8
 n_closes_neurons_connection_probability="connection_prob"  #"connection_prob" /"n_closest"
 activation_function="sigmoid" #relu
 
-generation_size=10
+generation_size=20
 n_survivors=3
 mutation_range=0.1
 training_set_size=1000
@@ -152,7 +153,7 @@ config = {         "training_run":training_run,
 # In[7]:
 
 
-settings = get_configuration(int(sys.argv[0]))
+settings = get_configuration(int(sys.argv[1]))
 for i in settings.keys():
     config[i]=settings[i]
 for i in config.keys():   
@@ -278,7 +279,7 @@ n = config["n_survivors"]
 mutation_range = config["mutation_range"]
 population_size = config["generation_size"]
 population_size = config["generation_size"]
-print_graphs = True
+print_graphs = False
 
 networks = create_population(population_size)
 evaluated_networks = evaluate_performance(networks, x_test[0], y_test_ohe[0])
@@ -361,7 +362,7 @@ def visualise_performance():
     plt.title("performannce over time, smoothed")
     plt.show()
     
-visualise_performance()
+#visualise_performance()
 
 
 # In[26]:
