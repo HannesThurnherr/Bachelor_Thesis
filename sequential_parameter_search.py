@@ -20,8 +20,6 @@ nobel prize
 
 
 import numpy as np
-import tensorflow as tf
-import tensorflow.keras
 import matplotlib.pyplot as plt
 import sys
 import os
