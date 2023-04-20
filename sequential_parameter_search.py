@@ -55,7 +55,7 @@ activation_function="sigmoid" #relu
 generation_size=20
 n_survivors=3
 mutation_range=0.1
-training_set_size=1000
+training_set_size=1000 #maybe make 10000?
 mutation_range_reducing_interval="none"
 mutation_range_reducing_factor="none"
 
@@ -257,6 +257,7 @@ def repopulate(evaluated_networks, mutation_range, n):
         net_offspring = net.reproduce(min(offspring_per_network, population_size - (len(offspring) + offspring_per_network)), mutation_range)
         offspring.extend(net_offspring)
     next_gen = parents + offspring
+    next_gen = next_gen[:population_size]
     return next_gen
 
 
@@ -275,7 +276,6 @@ mutation_ranges = []
     #loading hyperparameters
 n = config["n_survivors"]
 mutation_range = config["mutation_range"]
-population_size = config["generation_size"]
 population_size = config["generation_size"]
 print_graphs = False
 
@@ -410,10 +410,10 @@ while os.path.exists(folder_name):
 
 os.makedirs(folder_name)
 
-    
-np.savetxt(folder_name+'/training_run_'+str(training_run)+'_performance.csv', performance_over_time, delimiter=',')
+
+performance_over_time_array = np.array(performance_over_time)
+np.savetxt(folder_name+'/training_run_'+str(training_run)+'_performance.csv', performance_over_time_array, delimiter=',')
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_test_sets_used.csv', test_sets_used, delimiter=',')
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_mutation_ranges.csv', mutation_ranges, delimiter=',')
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_best_weights.csv', evaluated_networks[0][1].adj_matrix.toarray(), delimiter=',')
 np.save(folder_name+'/training_run_'+str(training_run)+'_config.npy', np.array(log))
-
