@@ -1,20 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-#TDL
-"""
-Optimise runtime somehow (just make it faster)
-define list of options
-make all the the options possible in code (implement alternative algorithms)
-configure pipeline so it takes configuration as a parameter
-set up grid search
-???
-nobel prize
-"""
-
 
 # In[40]:
 
