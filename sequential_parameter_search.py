@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import sys
 import os
 from non_layered_neural_net import nlnn
+import time
 
 
 
@@ -38,7 +39,7 @@ inference_steps = 8
 n_closes_neurons_connection_probability="connection_prob"  #"connection_prob" /"n_closest"
 activation_function="sigmoid" #relu
 
-generation_size=20
+generation_size=4
 n_survivors=3
 mutation_range=0.1
 training_set_size=1000 #maybe make 10000?
@@ -64,43 +65,31 @@ def get_configuration(index):
         "connection_probability_dropoff": 3.0,
         "hidden_neuron_connections": 7,
         "inference_steps": 8,
-        "n_closes_neurons_connection_probability": "connection_prob",
-        "activation_function": "leaky_relu",
         "n_survivors": 3,
+        "activation_function": "leaky_relu",
     }
 
-    params_to_evaluate = [
-        "neuron_count",
-        "connection_probability_dropoff",
-        "hidden_neuron_connections",
-        "inference_steps",
-        "n_closes_neurons_connection_probability",
-        "activation_function",
-        "n_survivors",
-    ]
-
+    params_to_evaluate = list(base_config.keys())
     param_index = index // 5
     run_index = index % 5
 
     param = params_to_evaluate[param_index]
 
     if param == "neuron_count":
-            base_config[param] = int((np.linspace(9, 18, 5)**2.5)[run_index])
+            base_config[param] = int((np.linspace(9, 19, 5)**2.5)[run_index])
     elif param == "connection_probability_dropoff":
-        base_config[param] = np.linspace(1, 2, 5)[run_index]
+        base_config[param] = np.linspace(1, 4, 5)[run_index]
     elif param == "hidden_neuron_connections":
         base_config[param] = int(np.linspace(3, 20, 5)[run_index])
+        base_config["n_closes_neurons_connection_probability"] = "n_closest"
     elif param == "inference_steps":
-        base_config[param] = int(np.linspace(4, 20, 5)[run_index])
-    elif param == "n_closes_neurons_connection_probability":
-        options = ["connection_prob", "n_closest"]
-        base_config[param] = options[run_index % len(options)]
+        base_config[param] = int(np.linspace(6, 20, 5)[run_index])
+    elif param == "n_survivors":
+        base_config[param] = int(np.linspace(1, 15, 5)[run_index])
     elif param == "activation_function":
         options = ["relu", "leaky_relu"]
         base_config[param] = options[run_index % len(options)]
-    elif param == "n_survivors":
-        base_config[param] = int(np.linspace(1, 12, 12)[run_index])
-
+    
     return base_config
 
 
@@ -271,8 +260,9 @@ print("best performer of this generation :", evaluated_networks[0][0])
 performance_over_time.append(np.array(evaluated_networks)[:,0])
 next_generation = repopulate(evaluated_networks, mutation_range,n)
 
-generations = 5000
+generations = 5
 test_set = 0
+start = time.time()
 for gen in range(generations):
     if(config["reducing_mutaiton_range"]=="yes"):
         if(gen%config["mutation_range_reducing_interval"]==0 and gen!=0): 
@@ -299,7 +289,7 @@ for gen in range(generations):
         plt.show()
         print("average best of last 100 generations",np.average(np.array(performance_over_time)[-100:,0]))
     
-
+duration = time.time()-start
 
 # In[15]:
 
@@ -385,7 +375,8 @@ log = {"training_run":training_run,
        "multiple_training_sets":multiple_training_sets,
        "keep_best_of_n_generations_keep_n_best":keep_best_of_n_generations_keep_n_best,
        "allow_topological_modification":allow_topological_modification,
-       "non-uniform_distribution_in_stochastic_mutation_range":non_uniform_distribution_in_stochastic_mutation_range }
+       "non-uniform_distribution_in_stochastic_mutation_range":non_uniform_distribution_in_stochastic_mutation_range,
+        "duration": duration}
 
 folder_name = 'run_'+str(training_run)
 suffix = 1
@@ -398,6 +389,7 @@ os.makedirs(folder_name)
 
 
 performance_over_time_array = np.array(performance_over_time)
+
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_performance.csv', performance_over_time_array, delimiter=',')
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_test_sets_used.csv', test_sets_used, delimiter=',')
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_mutation_ranges.csv', mutation_ranges, delimiter=',')
