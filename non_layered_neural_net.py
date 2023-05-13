@@ -1,8 +1,43 @@
+import os
+
 import numpy as np
 import matplotlib.pyplot as plt
+import psutil as psutil
 import scipy
-from scipy.sparse import csr_matrix, identity
+from scipy.sparse import csr_matrix, identity, find
 import sys
+import tracemalloc
+import functools
+from typing import Callable
+
+
+def get_memory_usage():
+    process = psutil.Process(os.getpid())
+    mem_info = process.memory_info()
+    memory_usage = mem_info.rss / (1024 ** 2)  # Convert bytes to MB
+    return memory_usage
+
+def memory_usage_decorator(func: Callable):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        tracemalloc.start()
+        before_memory = get_memory_usage()
+
+        result = func(*args, **kwargs)
+
+        after_memory = get_memory_usage()
+        tracemalloc.stop()
+
+        print(f"Function '{func.__name__}' memory usage:")
+        print(f"Before: {before_memory} MB")
+        print(f"After: {after_memory} MB")
+        print(f"Memory increase: {after_memory - before_memory} B")
+
+        return result
+
+    return wrapper
+
+
 
 def loading_bar(name, max_progress, current_progress):
     percent = (float(current_progress )/ float(max_progress)) * 100
@@ -81,7 +116,7 @@ class nlnn:
 
         self.adj_matrix = csr_matrix(self.adj_matrix)
 
-    def initialise_structure_n_closest(self, hidden_neuron_connections = 7, input_neuron_connections = 10, output_neuron_connections = 10):
+    def initialise_structure_n_closest(self, hidden_neuron_connections = 20, input_neuron_connections = 10, output_neuron_connections = 20):
         space_size = 1
         input_n_coord = np.zeros((self.input_neurons, 2))
         output_n_coord = np.zeros((self.output_neurons, 2))
@@ -177,18 +212,17 @@ class nlnn:
     def leaky_relu(self, x):
         return np.where(x > 0, x, x * 0.01)
 
-    def prop_step(self, x, activation_function = "leaky_relu"):
-        #print(self.neuron_values)
+    def prop_step(self, x, activation_function="leaky_relu"):
         if activation_function == "relu":
-            self.neuron_values = self.relu(np.dot(self.neuron_values, self.adj_matrix))
-            self.neuron_values[:, :x.shape[1]] = x
+            new_neuron_values = self.relu(np.dot(self.neuron_values, self.adj_matrix))
         elif activation_function == "sigmoid":
-            self.neuron_values = self.sigmoid(np.dot(self.neuron_values, self.adj_matrix))
-            self.neuron_values[:, :x.shape[1]] = x
+            new_neuron_values = self.sigmoid(np.dot(self.neuron_values, self.adj_matrix))
         elif activation_function == "leaky_relu":
-            self.neuron_values = self.leaky_relu(np.dot(self.neuron_values, self.adj_matrix))
-            self.neuron_values[:, :x.shape[1]] = x
+            #print("before mat mul", get_memory_usage(), "MB")
+            new_neuron_values = self.leaky_relu(np.dot(self.neuron_values, self.adj_matrix))
+            #print("after mat mul", get_memory_usage(), "MB")
 
+        self.neuron_values = np.hstack((x, new_neuron_values[:, x.shape[1]:]))
 
     def prop_step_sparse(self, x, activation_function = "leaky_relu"):
         if activation_function == "relu":
@@ -204,15 +238,24 @@ class nlnn:
     def get_output(self):
         return self.neuron_values[:, -self.output_neurons:]
 
+
     def predict_sparse(self, x, steps, activation_function = "leaky_relu"):
+        #print(1,get_memory_usage(), "MB")
         self.neuron_values = np.zeros((len(x), self.dim_matrix))
+        #print(2, get_memory_usage(), "MB")
         self.neuron_values[:, :x.shape[1]] = x
+        print("before propagation", get_memory_usage(), "MB")
         for i in range(steps):
             self.prop_step_sparse(x, activation_function = activation_function)
+        print("after prpagation", get_memory_usage(), "MB")
         result = self.get_output()
+        print()
         prediction = np.argmax(result, axis=1)
+        #print(5, get_memory_usage(), "MB")
         prediction = np.eye(self.output_neurons)[prediction]
-        self.neuron_values = np.zeros_like(self.neuron_values)
+        #print(6, get_memory_usage(), "MB")
+        self.neuron_values[:,:] = 0
+        #print(7, get_memory_usage(), "MB")
         return prediction, result
 
     def predict(self, x, steps, activation_function = "leaky_relu"):
@@ -222,14 +265,19 @@ class nlnn:
             pass
         self.neuron_values = np.zeros((len(x), self.dim_matrix))
         self.neuron_values[:, :x.shape[1]] = x
+        #print("before propagation", get_memory_usage(), "MB")
         for i in range(steps):
             self.prop_step(x, activation_function = activation_function)
+        #print("after prpagation", get_memory_usage(), "MB")
         result = self.get_output()
+        #print("after getoutput()", get_memory_usage(), "MB")
         prediction = np.argmax(result, axis=1)
         prediction = np.eye(self.output_neurons)[prediction]
-        #print(self.neuron_values)
-        self.neuron_values = np.zeros_like(self.neuron_values)
+        #print("after prediction", get_memory_usage(), "MB")
+        self.neuron_values = np.zeros(self.neuron_values.shape)
+        #print("after neuron_value reset", get_memory_usage(), "MB")
         self.adj_matrix = csr_matrix(self.adj_matrix)
+
         return prediction, result
 
     def mutate_weights(self, mutation_range):
@@ -253,6 +301,8 @@ class nlnn:
             offspring.append(new_net)
         self.adj_matrix = csr_matrix(self.adj_matrix)
         return offspring
+
+
 
     def test_sigmoid(self):
         # Test input with one positive number
@@ -307,5 +357,5 @@ net.initialise_structure_n_closest(hidden_neuron_connections=10)
 #net.initialise_structure(connection_probability_dropoff=3, connection_probabily_scalar=0.0003)
 #net.display_net()
 
-#print(net.predict(np.array([[2,1,4]]), 16), 0)
+print(net.predict(np.array([[2,1,4]]), 16), 0)
 #print(net.predict_sparse(np.array([[2,1,4]]), 16), 0)

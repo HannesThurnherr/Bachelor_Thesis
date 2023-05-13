@@ -11,6 +11,42 @@ import sys
 import os
 from non_layered_neural_net import nlnn
 import time
+import gc
+import psutil
+
+
+
+
+import tracemalloc
+import functools
+from typing import Callable
+
+
+def get_memory_usage():
+    process = psutil.Process(os.getpid())
+    mem_info = process.memory_info()
+    memory_usage = mem_info.rss / (1024 ** 2)  # Convert bytes to MB
+    return memory_usage
+
+def memory_usage_decorator(func: Callable):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        tracemalloc.start()
+        before_memory = get_memory_usage()
+
+        result = func(*args, **kwargs)
+
+        after_memory = get_memory_usage()
+        tracemalloc.stop()
+
+        print(f"Function '{func.__name__}' memory usage:")
+        print(f"Before: {before_memory} MB")
+        print(f"After: {after_memory} MB")
+        print(f"Memory increase: {after_memory - before_memory} B")
+
+        return result
+
+    return wrapper
 
 
 
@@ -39,7 +75,7 @@ inference_steps = 8
 n_closes_neurons_connection_probability="connection_prob"  #"connection_prob" /"n_closest"
 activation_function="sigmoid" #relu
 
-generation_size=4
+generation_size=15
 n_survivors=3
 mutation_range=0.1
 training_set_size=1000 #maybe make 10000?
@@ -63,7 +99,7 @@ def get_configuration(index):
     base_config = {
         "neuron_count": 1000,
         "connection_probability_dropoff": 3.0,
-        "hidden_neuron_connections": 7,
+        "hidden_neuron_connections": 6,
         "inference_steps": 8,
         "n_survivors": 3,
         "activation_function": "leaky_relu",
@@ -76,20 +112,20 @@ def get_configuration(index):
     param = params_to_evaluate[param_index]
 
     if param == "neuron_count":
-            base_config[param] = int((np.linspace(9, 19, 5)**2.5)[run_index])
+        base_config[param] = int((np.linspace(9, 19, 5) ** 2.5)[run_index])
     elif param == "connection_probability_dropoff":
         base_config[param] = np.linspace(1, 4, 5)[run_index]
     elif param == "hidden_neuron_connections":
-        base_config[param] = int(np.linspace(3, 20, 5)[run_index])
+        base_config[param] = int(np.linspace(20, 40, 5)[run_index])
         base_config["n_closes_neurons_connection_probability"] = "n_closest"
     elif param == "inference_steps":
         base_config[param] = int(np.linspace(6, 20, 5)[run_index])
     elif param == "n_survivors":
-        base_config[param] = int(np.linspace(1, 15, 5)[run_index])
+        base_config[param] = int(np.linspace(1, 12, 5)[run_index])
     elif param == "activation_function":
         options = ["relu", "leaky_relu"]
         base_config[param] = options[run_index % len(options)]
-    
+
     return base_config
 
 
@@ -137,8 +173,17 @@ for i in config.keys():
 
 
 #load dataset
-from keras.datasets import mnist
-(train_X, train_y), (test_X, test_y) = mnist.load_data()
+
+
+def load_local_mnist_data(path):
+    with np.load(path) as f:
+        x_train, y_train = f['x_train'], f['y_train']
+        x_test, y_test = f['x_test'], f['y_test']
+    return (x_train, y_train), (x_test, y_test)
+
+
+(train_X, train_y), (test_X, test_y) = load_local_mnist_data('mnist.npz')
+
 #one hot encode
 def one_hot_encode(x):
     out = np.zeros((len(x), max(x)+1))
@@ -183,11 +228,12 @@ def get_perf(t):
         return t[0]
 
 #measure performance of all the networks
+@memory_usage_decorator
 def evaluate_performance(population, x, y):
     performances = []
     print("evaluating performances", end="")
     for net in population:
-        predictions = net.predict_sparse(x, config["inference_steps"])[0]
+        predictions = net.predict(x, config["inference_steps"])[0]
         correct_count = len(x)-(np.sum(np.abs(y - predictions))/2)
         performances.append((correct_count/len(x), net))
         #print(correct_count/len(x))
@@ -199,41 +245,25 @@ def evaluate_performance(population, x, y):
 
 
 
-# In[11]:
-
-
-from concurrent.futures import ThreadPoolExecutor
-
-def evaluate_net(net, x, y):
-    predictions = net.predict(x, config["inference_steps"])[0]
-    correct_count = len(x) - (np.sum(np.abs(y - predictions)) / 2)
-    performance = correct_count / len(x)
-    return (performance, net)
-
-def evaluate_performance_fast(population, x, y):
-    with ThreadPoolExecutor() as executor:
-        performances = list(executor.map(evaluate_net, population, [x] * len(population), [y] * len(population)))
-
-    print("Evaluation done!")
-
-    # Sort by best performance
-    performances.sort(key=lambda x: x[0], reverse=True)
-    return performances
-
-
 # In[12]:
 
-
+@memory_usage_decorator
 def repopulate(evaluated_networks, mutation_range, n):
     offspring_per_network = int(population_size/n)
     parents = [i[1] for i in evaluated_networks[:n]]
     offspring = []
     for net in parents:
-        net_offspring = net.reproduce(min(offspring_per_network, population_size - (len(offspring) + offspring_per_network)), mutation_range)
+        net_offspring = net.reproduce(min(offspring_per_network, population_size - len(offspring)), mutation_range)
         offspring.extend(net_offspring)
+        gc.collect()
     next_gen = parents + offspring
     next_gen = next_gen[:population_size]
     return next_gen
+
+
+
+
+
 
 
 # In[13]:
@@ -255,12 +285,12 @@ population_size = config["generation_size"]
 print_graphs = False
 
 networks = create_population(population_size)
-evaluated_networks = evaluate_performance(networks, x_test[0], y_test_ohe[0])
-print("best performer of this generation :", evaluated_networks[0][0])
-performance_over_time.append(np.array(evaluated_networks)[:,0])
-next_generation = repopulate(evaluated_networks, mutation_range,n)
+networks = evaluate_performance(networks, x_test[0], y_test_ohe[0])
+print("best performer of this generation :", networks[0][0])
+performance_over_time.append(np.array(networks)[:,0])
+networks = repopulate(networks, mutation_range,n)
 
-generations = 5
+generations = 1000
 test_set = 0
 start = time.time()
 for gen in range(generations):
@@ -274,109 +304,31 @@ for gen in range(generations):
         test_set = np.random.randint(4)
     test_sets_used.append(test_set)
     print(" test set:",test_set,end=" ")
-    evaluated_networks = evaluate_performance(next_generation, x_test[test_set], y_test_ohe[test_set])
-    print(" best:", evaluated_networks[0][0], "second:", evaluated_networks[1][0], "third:", evaluated_networks[2][0])
-    performance_over_time.append(np.array(evaluated_networks)[:,0])
+    networks = evaluate_performance(networks, x_test[test_set], y_test_ohe[test_set])
+    
+    #print(" best:", evaluated_networks[0][0], "second:", evaluated_networks[1][0], "third:", evaluated_networks[2][0])
+    performance_over_time.append(np.array(networks)[:,0])
     generational_mutation_range = mutation_range
     if config["stochastic_mutation_range"]=="yes": #change back
         generational_mutation_range = np.random.rand() * mutation_range
     mutation_ranges.append(generational_mutation_range)
     print("mutating in range:", generational_mutation_range)
-    next_generation = repopulate(evaluated_networks, generational_mutation_range, config["n_survivors"])
+
+    next_gen = repopulate(networks, generational_mutation_range, config["n_survivors"])
+
+    del networks
+    networks = next_gen
+    gc.collect()
     if(gen%10==0) and print_graphs:
         plt.plot(np.array(performance_over_time), alpha= 0.1)
         plt.plot(np.array(performance_over_time)[:,0])
         plt.show()
-        print("average best of last 100 generations",np.average(np.array(performance_over_time)[-100:,0]))
-    
+        print("average best of last 100 generations",np.average(np.array(performance_over_time)[-100:,0]))  
+    gc.collect()
 duration = time.time()-start
 
-# In[15]:
 
-
-#visualising performance across the 10 different sets
-def visualise_performance():
-    performance_hist = np.array(performance_over_time)[-len(test_sets_used):,0]
-    set_perf = []
-    for i in range(10):
-        set_perf.append([])
-    for i in range(len(test_sets_used)-10):
-        set_perf[test_sets_used[i]].append(performance_hist[i])
-
-    for i in set_perf:
-        plt.plot(i, alpha=0.8)
-    plt.show()
-    """
-    plt.violinplot(set_perf)
-    plt.show()
-    """
-    performance_hist = np.array(performance_over_time)[-len(test_sets_used):]
-    performance_changes = []
-    for i in range(len(performance_hist)-1):
-        performance_changes.append(-(np.average(performance_hist[i])-np.average(performance_hist[i+1])))
-
-    plt.scatter(np.array(performance_changes)[:len(mutation_ranges)], np.array(mutation_ranges)[:len(performance_changes)])
-    plt.xlabel('change in perform')
-    plt.ylabel('Y-axis label')
-    plt.title("avg performance increase vs. mutation ranges")
-    plt.show()
-
-    plt.violinplot(np.array(mutation_ranges))
-    plt.title("frequency of mutation ranges")
-    plt.show()
-
-
-    plt.plot(performance_over_time, alpha= 0.1)
-    plt.plot(np.array(performance_over_time)[:,0])
-    plt.title("performance of ranked individuals")
-    plt.show()
-
-
-    plt.plot(np.average(np.split(np.array(performance_over_time)[:6400,0], 40),axis =1))
-    plt.title("performannce over time, smoothed")
-    plt.show()
-    
-#visualise_performance()
-
-
-# In[26]:
-
-
-
-
-
-# In[46]:
-
-
-#Saving the data of a particular training Run
-
-log = {"training_run":training_run,
-       "neuron_count":neuron_count,
-       "connection_probability_dropoff":connection_probability_dropoff,
-       "connection_probability_scalar":connection_probability_scalar,
-       "input_layer_connectivity_multiplyer":input_layer_connectivity_multiplyer,
-       "output_layer_connectivity_multiplyer":output_layer_connectivity_multiplyer,
-       "weight_initialisation_range":weight_initialisation_range,
-       "distances_from_input_output_layer_to_main_neuron_field":distances_from_input_output_layer_to_main_neuron_field,
-       "n_closes_neurons_connection_probability":n_closes_neurons_connection_probability,
-       "hidden_neuron_connections" : hidden_neuron_connections,
-       "input_neuron_connections" : input_neuron_connections,
-       "output_neuron_connections" : output_neuron_connections,
-       "inference_steps" : inference_steps,
-       "activation_function":activation_function,
-       "generation_size":generation_size,
-       "n_survivors":n_survivors,
-       "mutation_range":mutation_range,
-       "training_set_size":training_set_size,
-       "mutation_range_reducing_interval":mutation_range_reducing_interval,
-       "mutation_range_reducing_factor":mutation_range_reducing_factor,
-       "reducing_mutaiton_range":reducing_mutaiton_range,
-       "stochastic_mutation_range":stochastic_mutation_range,
-       "multiple_training_sets":multiple_training_sets,
-       "keep_best_of_n_generations_keep_n_best":keep_best_of_n_generations_keep_n_best,
-       "allow_topological_modification":allow_topological_modification,
-       "non-uniform_distribution_in_stochastic_mutation_range":non_uniform_distribution_in_stochastic_mutation_range,
-        "duration": duration}
+config["duration"] = duration
 
 folder_name = 'run_'+str(training_run)
 suffix = 1
@@ -388,10 +340,18 @@ while os.path.exists(folder_name):
 os.makedirs(folder_name)
 
 
-performance_over_time_array = np.array(performance_over_time)
+print("saving files")
+
+performance_over_time_array = np.array(performance_over_time, dtype=np.float64)
 
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_performance.csv', performance_over_time_array, delimiter=',')
+print("performances saved successfully")
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_test_sets_used.csv', test_sets_used, delimiter=',')
+print("test sets saved successfully")
 np.savetxt(folder_name+'/training_run_'+str(training_run)+'_mutation_ranges.csv', mutation_ranges, delimiter=',')
-np.savetxt(folder_name+'/training_run_'+str(training_run)+'_best_weights.csv', evaluated_networks[0][1].adj_matrix.toarray(), delimiter=',')
-np.save(folder_name+'/training_run_'+str(training_run)+'_config.npy', np.array(log))
+print("mutation ranges saved successfully")
+np.savetxt(folder_name+'/training_run_'+str(training_run)+'_best_weights.csv', networks[0][1].adj_matrix.toarray(), delimiter=',')
+print("best weights saved successfully")
+np.save(folder_name+'/training_run_'+str(training_run)+'_config.npy', np.array(config))
+print("config saved successfully \n COMPLETED RUN SCCESSFULLY")
+
