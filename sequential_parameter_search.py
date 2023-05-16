@@ -3,7 +3,7 @@
 
 
 # In[40]:
-
+print("script started")
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -228,7 +228,7 @@ def get_perf(t):
         return t[0]
 
 #measure performance of all the networks
-@memory_usage_decorator
+
 def evaluate_performance(population, x, y):
     performances = []
     print("evaluating performances", end="")
@@ -236,7 +236,6 @@ def evaluate_performance(population, x, y):
         predictions = net.predict(x, config["inference_steps"])[0]
         correct_count = len(x)-(np.sum(np.abs(y - predictions))/2)
         performances.append((correct_count/len(x), net))
-        #print(correct_count/len(x))
         print("|", end="")
     print(" done!", end=" ")
     #sort by best performance
@@ -247,7 +246,7 @@ def evaluate_performance(population, x, y):
 
 # In[12]:
 
-@memory_usage_decorator
+
 def repopulate(evaluated_networks, mutation_range, n):
     offspring_per_network = int(population_size/n)
     parents = [i[1] for i in evaluated_networks[:n]]
@@ -306,7 +305,7 @@ for gen in range(generations):
     print(" test set:",test_set,end=" ")
     networks = evaluate_performance(networks, x_test[test_set], y_test_ohe[test_set])
     
-    #print(" best:", evaluated_networks[0][0], "second:", evaluated_networks[1][0], "third:", evaluated_networks[2][0])
+    print(" best:", networks[0][0] )#, "second:", evaluated_networks[1][0], "third:", evaluated_networks[2][0])
     performance_over_time.append(np.array(networks)[:,0])
     generational_mutation_range = mutation_range
     if config["stochastic_mutation_range"]=="yes": #change back

@@ -213,16 +213,14 @@ class nlnn:
         return np.where(x > 0, x, x * 0.01)
 
     def prop_step(self, x, activation_function="leaky_relu"):
+        # print(self.neuron_values)
         if activation_function == "relu":
-            new_neuron_values = self.relu(np.dot(self.neuron_values, self.adj_matrix))
+            self.neuron_values = self.relu(np.dot(self.neuron_values, self.adj_matrix))
         elif activation_function == "sigmoid":
-            new_neuron_values = self.sigmoid(np.dot(self.neuron_values, self.adj_matrix))
+            self.neuron_values = self.sigmoid(np.dot(self.neuron_values, self.adj_matrix))
         elif activation_function == "leaky_relu":
-            #print("before mat mul", get_memory_usage(), "MB")
-            new_neuron_values = self.leaky_relu(np.dot(self.neuron_values, self.adj_matrix))
-            #print("after mat mul", get_memory_usage(), "MB")
-
-        self.neuron_values = np.hstack((x, new_neuron_values[:, x.shape[1]:]))
+            self.neuron_values = self.leaky_relu(np.dot(self.neuron_values, self.adj_matrix))
+        self.neuron_values[:, :x.shape[1]] = x
 
     def prop_step_sparse(self, x, activation_function = "leaky_relu"):
         if activation_function == "relu":
@@ -352,10 +350,10 @@ class nlnn:
         self.test_predict()
 
 
-net = nlnn(hidden_neurons=300, input_neurons=3, output_neurons=2)
-net.initialise_structure_n_closest(hidden_neuron_connections=10)
+#net = nlnn(hidden_neurons=300, input_neurons=3, output_neurons=2)
+#net.initialise_structure_n_closest(hidden_neuron_connections=10)
 #net.initialise_structure(connection_probability_dropoff=3, connection_probabily_scalar=0.0003)
 #net.display_net()
 
-print(net.predict(np.array([[2,1,4]]), 16), 0)
+#print(net.predict(np.array([[2,1,4]]), 16), 0)
 #print(net.predict_sparse(np.array([[2,1,4]]), 16), 0)
