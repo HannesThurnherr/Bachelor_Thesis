@@ -1,0 +1,1960 @@
+script started
+training_run : 7
+neuron_count : 1000
+connection_probability_dropoff : 2.5
+connection_probability_scalar : 3e-05
+input_layer_connectivity_multiplyer : 50
+output_layer_connectivity_multiplyer : 20
+weight_initialisation_range : 2
+n_closes_neurons_connection_probability : connection_prob
+hidden_neuron_connections : 6
+input_neuron_connections : 10
+output_neuron_connections : 10
+inference_steps : 8
+activation_function : leaky_relu
+generation_size : 15
+n_survivors : 3
+mutation_range : 0.1
+training_set_size : 1000
+mutation_range_reducing_interval : none
+mutation_range_reducing_factor : none
+reducing_mutaiton_range : no
+stochastic_mutation_range : yes
+multiple_training_sets : yes
+allow_topological_modification : no
+Creating networks
+|||||||||||||||done!
+evaluating performances||||||||||||||| done! best performer of this generation : 0.174
+generation 2  test set: 0 evaluating performances||||||||||||||| done!  best: 0.1759
+mutating in range: 0.06664236411399059
+generation 3  test set: 0 evaluating performances||||||||||||||| done!  best: 0.1804
+mutating in range: 0.016227948663878788
+generation 4  test set: 0 evaluating performances||||||||||||||| done!  best: 0.1827
+mutating in range: 0.06797428922112254
+generation 5  test set: 0 evaluating performances||||||||||||||| done!  best: 0.1902
+mutating in range: 0.06617113880600024
+generation 6  test set: 0 evaluating performances||||||||||||||| done!  best: 0.1983
+mutating in range: 0.026161867337586964
+generation 7  test set: 0 evaluating performances||||||||||||||| done!  best: 0.1992
+mutating in range: 0.025688846662064904
+generation 8  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2007
+mutating in range: 0.029872838539348814
+generation 9  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2026
+mutating in range: 0.009196847332747128
+generation 10  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2031
+mutating in range: 0.0145243087973712
+generation 11  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2035
+mutating in range: 0.09965788707451698
+generation 12  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2066
+mutating in range: 0.0542848324438337
+generation 13  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2096
+mutating in range: 0.00026414653716926305
+generation 14  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2097
+mutating in range: 0.0004992232513500006
+generation 15  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2098
+mutating in range: 0.08127547477139627
+generation 16  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2106
+mutating in range: 0.0892784558625462
+generation 17  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2147
+mutating in range: 0.09746627641116351
+generation 18  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2163
+mutating in range: 0.050204292363546246
+generation 19  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2164
+mutating in range: 0.06455073764523839
+generation 20  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2175
+mutating in range: 0.02969658307506127
+generation 21  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2186
+mutating in range: 0.037309142107095516
+generation 22  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2191
+mutating in range: 0.0794434928118883
+generation 23  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2191
+mutating in range: 0.036906598756209046
+generation 24  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2191
+mutating in range: 0.0348285763422588
+generation 25  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2194
+mutating in range: 0.032676415062372614
+generation 26  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2199
+mutating in range: 0.0860531545422495
+generation 27  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2211
+mutating in range: 0.03310333531669094
+generation 28  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2221
+mutating in range: 0.051687858121490696
+generation 29  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2223
+mutating in range: 0.029139930645752557
+generation 30  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2231
+mutating in range: 0.04554801154339601
+generation 31  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2242
+mutating in range: 0.0977477602233961
+generation 32  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2248
+mutating in range: 0.07017332273372243
+generation 33  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2256
+mutating in range: 0.043332716026032794
+generation 34  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2269
+mutating in range: 0.029872918469096045
+generation 35  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2273
+mutating in range: 0.08339778974190755
+generation 36  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2274
+mutating in range: 0.07222287449736911
+generation 37  test set: 0 evaluating performances||||||||||||||| done!  best: 0.229
+mutating in range: 0.0754523376245712
+generation 38  test set: 0 evaluating performances||||||||||||||| done!  best: 0.229
+mutating in range: 0.07710397507798739
+generation 39  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2298
+mutating in range: 0.07284189550276021
+generation 40  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2305
+mutating in range: 0.023824107288213305
+generation 41  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2305
+mutating in range: 0.07008107487295558
+generation 42  test set: 0 evaluating performances||||||||||||||| done!  best: 0.232
+mutating in range: 0.09419392349902975
+generation 43  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2334
+mutating in range: 0.01804701684394172
+generation 44  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2339
+mutating in range: 0.06307949674299623
+generation 45  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2351
+mutating in range: 0.04599058397224211
+generation 46  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2373
+mutating in range: 0.02734914240803138
+generation 47  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2373
+mutating in range: 0.05234731788580021
+generation 48  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2385
+mutating in range: 0.09073427426786726
+generation 49  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2396
+mutating in range: 0.05637869529049688
+generation 50  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2403
+mutating in range: 0.0860887822113196
+generation 51  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2415
+mutating in range: 0.060340287024250275
+generation 52  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2429
+mutating in range: 0.06602173917374464
+generation 53  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2431
+mutating in range: 0.006474975263214478
+generation 54  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2434
+mutating in range: 0.09449918118513372
+generation 55  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2441
+mutating in range: 0.09786843861694121
+generation 56  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2441
+mutating in range: 0.05042966901893913
+generation 57  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2447
+mutating in range: 0.07158720107697329
+generation 58  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2448
+mutating in range: 0.08752383190648372
+generation 59  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2463
+mutating in range: 0.061462933610062456
+generation 60  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2472
+mutating in range: 0.0026643851052758796
+generation 61  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2473
+mutating in range: 0.05718763109909484
+generation 62  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2483
+mutating in range: 0.0133171672069885
+generation 63  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2487
+mutating in range: 0.0034768591179315414
+generation 64  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2488
+mutating in range: 0.015562684679946405
+generation 65  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2492
+mutating in range: 0.07864957089537927
+generation 66  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2492
+mutating in range: 0.05594326381388579
+generation 67  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2497
+mutating in range: 0.031042091427055274
+generation 68  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2497
+mutating in range: 0.07895783810352403
+generation 69  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2503
+mutating in range: 0.04356508385697209
+generation 70  test set: 0 evaluating performances||||||||||||||| done!  best: 0.251
+mutating in range: 0.09130731207338622
+generation 71  test set: 0 evaluating performances||||||||||||||| done!  best: 0.251
+mutating in range: 0.026836461762886787
+generation 72  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2512
+mutating in range: 0.08062764453574926
+generation 73  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2512
+mutating in range: 0.028374274661701716
+generation 74  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2518
+mutating in range: 0.0573611818091743
+generation 75  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2521
+mutating in range: 0.0002709112753989884
+generation 76  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2521
+mutating in range: 0.06514348041834314
+generation 77  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2525
+mutating in range: 0.040517990712315356
+generation 78  test set: 0 evaluating performances||||||||||||||| done!  best: 0.254
+mutating in range: 0.09819762185209065
+generation 79  test set: 0 evaluating performances||||||||||||||| done!  best: 0.254
+mutating in range: 0.08274221232982369
+generation 80  test set: 0 evaluating performances||||||||||||||| done!  best: 0.254
+mutating in range: 0.051805537936110174
+generation 81  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2544
+mutating in range: 0.03144829493795342
+generation 82  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2544
+mutating in range: 0.09559897445684072
+generation 83  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2544
+mutating in range: 0.03571020749238736
+generation 84  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2544
+mutating in range: 0.04969581748281964
+generation 85  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2547
+mutating in range: 0.05267450178344943
+generation 86  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2547
+mutating in range: 0.028153156537532077
+generation 87  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2551
+mutating in range: 0.09572065256185398
+generation 88  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2553
+mutating in range: 0.006457945707365787
+generation 89  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2554
+mutating in range: 0.06464514172010516
+generation 90  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2563
+mutating in range: 0.0753479835368136
+generation 91  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2573
+mutating in range: 0.0447603619952705
+generation 92  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2573
+mutating in range: 0.0949052020254641
+generation 93  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2575
+mutating in range: 0.0021497273019113194
+generation 94  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2575
+mutating in range: 0.03984117472395959
+generation 95  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2585
+mutating in range: 0.024660698503659963
+generation 96  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2588
+mutating in range: 0.0744092637657086
+generation 97  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2588
+mutating in range: 0.07374593420010651
+generation 98  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2588
+mutating in range: 0.08275609228047844
+generation 99  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2588
+mutating in range: 0.047791016850088824
+generation 100  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2591
+mutating in range: 0.031783867988025995
+generation 101  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2591
+mutating in range: 0.01800585835195605
+generation 102  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2593
+mutating in range: 0.08202975591135855
+generation 103  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2593
+mutating in range: 0.07000549068576943
+generation 104  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2599
+mutating in range: 0.08236635611845207
+generation 105  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2599
+mutating in range: 0.01933339491160926
+generation 106  test set: 0 evaluating performances||||||||||||||| done!  best: 0.26
+mutating in range: 0.023780979990808773
+generation 107  test set: 0 evaluating performances||||||||||||||| done!  best: 0.26
+mutating in range: 0.09249124427577138
+generation 108  test set: 0 evaluating performances||||||||||||||| done!  best: 0.26
+mutating in range: 0.004208317467544387
+generation 109  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.010915139391834229
+generation 110  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.012126666151742094
+generation 111  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.016788684273072597
+generation 112  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.04175852471023244
+generation 113  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.0702026034736457
+generation 114  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.09139806420340277
+generation 115  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.06317073532695865
+generation 116  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.044432095902530715
+generation 117  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.0731848539578346
+generation 118  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.07152346814909488
+generation 119  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.07293101449106143
+generation 120  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.057896733965068684
+generation 121  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2602
+mutating in range: 0.050804084778021744
+generation 122  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2606
+mutating in range: 0.0318646200735761
+generation 123  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2607
+mutating in range: 0.026390299001470198
+generation 124  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2617
+mutating in range: 0.08397334248474224
+generation 125  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2617
+mutating in range: 0.07038149603360452
+generation 126  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2617
+mutating in range: 0.07808465427838385
+generation 127  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2617
+mutating in range: 0.09661371011290586
+generation 128  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2617
+mutating in range: 0.05433061949356999
+generation 129  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2617
+mutating in range: 0.01022332951691688
+generation 130  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2617
+mutating in range: 0.04161912988726259
+generation 131  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2617
+mutating in range: 0.015841055545527595
+generation 132  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2619
+mutating in range: 0.05141148041942406
+generation 133  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2623
+mutating in range: 0.015069180150080365
+generation 134  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2623
+mutating in range: 0.0699216047740581
+generation 135  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2623
+mutating in range: 0.0788873797496587
+generation 136  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2623
+mutating in range: 0.03081127901238332
+generation 137  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2623
+mutating in range: 0.040593113965503906
+generation 138  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2624
+mutating in range: 0.05311522834760336
+generation 139  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2624
+mutating in range: 0.05409966860299567
+generation 140  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2626
+mutating in range: 0.029682448075206827
+generation 141  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2627
+mutating in range: 0.03932351628205331
+generation 142  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2627
+mutating in range: 0.05588902214930615
+generation 143  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2627
+mutating in range: 0.07739590360113234
+generation 144  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2627
+mutating in range: 0.05117125418173826
+generation 145  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2627
+mutating in range: 0.06517758201084455
+generation 146  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2627
+mutating in range: 0.052647218504258735
+generation 147  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2628
+mutating in range: 0.00922869165590261
+generation 148  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2632
+mutating in range: 0.0899265165111052
+generation 149  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2632
+mutating in range: 0.08042804469090077
+generation 150  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2632
+mutating in range: 0.04444008834647434
+generation 151  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2634
+mutating in range: 0.000489965811803339
+generation 152  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2634
+mutating in range: 0.0503377929876925
+generation 153  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2634
+mutating in range: 0.03883615306122043
+generation 154  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2634
+mutating in range: 0.024380673196292127
+generation 155  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.08160476538532996
+generation 156  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.009404669701643754
+generation 157  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.04840751906718668
+generation 158  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.06598918746662114
+generation 159  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.08389876607016158
+generation 160  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.06687264480811629
+generation 161  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.050819013265756476
+generation 162  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.07553131755043678
+generation 163  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2635
+mutating in range: 0.04691966572062161
+generation 164  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.058943253100169415
+generation 165  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.015709992720153065
+generation 166  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.09212174238089024
+generation 167  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.06809173568826658
+generation 168  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.05930831760654535
+generation 169  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.07228225288313124
+generation 170  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.030485648672875544
+generation 171  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.05288060147067655
+generation 172  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.08466819777516854
+generation 173  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2636
+mutating in range: 0.04714287535707349
+generation 174  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2638
+mutating in range: 0.013959773481170591
+generation 175  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2638
+mutating in range: 0.026486148369804775
+generation 176  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.07100891562480278
+generation 177  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.09853930429308058
+generation 178  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.027395624957567956
+generation 179  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.0191857844744747
+generation 180  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.026426643225186633
+generation 181  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.053066688044558975
+generation 182  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.05873877118257459
+generation 183  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.0016182301672050814
+generation 184  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.022358675448956002
+generation 185  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.009750681086394897
+generation 186  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.04150491816387634
+generation 187  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.08048169975381592
+generation 188  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.08246126917649776
+generation 189  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.09010688583181439
+generation 190  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.047434247840277145
+generation 191  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.04508520846776544
+generation 192  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.06315797028512772
+generation 193  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.05077487972241458
+generation 194  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.014956621373626201
+generation 195  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.006538684426767672
+generation 196  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.08663235178754065
+generation 197  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.08859397070306281
+generation 198  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.05730818952283271
+generation 199  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.017048157615568084
+generation 200  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.007401102883975008
+generation 201  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.0030937060266374664
+generation 202  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.059490356041843995
+generation 203  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.049244067201346435
+generation 204  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.0568354214554354
+generation 205  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.034298093994643473
+generation 206  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.08384856229619955
+generation 207  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.02937974127780432
+generation 208  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.02423354751686936
+generation 209  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.008058184800807767
+generation 210  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.06563007204420106
+generation 211  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.007661065748514473
+generation 212  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.004333413668829012
+generation 213  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.00434468455679351
+generation 214  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.08072212494181148
+generation 215  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.07161138084491697
+generation 216  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.012549527542396133
+generation 217  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.09361193722004624
+generation 218  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2651
+mutating in range: 0.0031773553922427758
+generation 219  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07024023288968602
+generation 220  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.025130290392406475
+generation 221  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.037503235789942684
+generation 222  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.025423381794150147
+generation 223  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.008527784884877255
+generation 224  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.01515877095734447
+generation 225  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03470322235551554
+generation 226  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.013703400912826758
+generation 227  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0461621041224625
+generation 228  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05432351474864564
+generation 229  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.027328290185557304
+generation 230  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03565757116282814
+generation 231  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03782005171994371
+generation 232  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.038929699842790044
+generation 233  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.005604728261206693
+generation 234  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09110260476897633
+generation 235  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.059227285654126584
+generation 236  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.016921127313327955
+generation 237  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04334975043163695
+generation 238  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05588446915161915
+generation 239  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.028481197387088986
+generation 240  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.007662363928282534
+generation 241  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.033978527886210676
+generation 242  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07206149390990214
+generation 243  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0051449088426706036
+generation 244  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.011896698123660489
+generation 245  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07579395740634319
+generation 246  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04888586381804913
+generation 247  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.008626980776003467
+generation 248  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.060159818364590084
+generation 249  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.004569589547901343
+generation 250  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04625669603455146
+generation 251  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.01579569035772829
+generation 252  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07714513346058587
+generation 253  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06324727900163965
+generation 254  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09660862623409391
+generation 255  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.051115485157920026
+generation 256  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.098198066338618
+generation 257  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.004688120573666477
+generation 258  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09775314528134574
+generation 259  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.059454492054880285
+generation 260  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.006047900470648838
+generation 261  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05771675263326398
+generation 262  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.020637120952198676
+generation 263  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.031944858916173484
+generation 264  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.02334111761026199
+generation 265  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.024908354858954786
+generation 266  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05811120892483288
+generation 267  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09747350534036354
+generation 268  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06539773123029936
+generation 269  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.019614890997310543
+generation 270  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.01884884079245133
+generation 271  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03968743177437006
+generation 272  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.006880704935513782
+generation 273  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09902303565684245
+generation 274  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06294116634706357
+generation 275  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.026558103450039595
+generation 276  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.005238259293380199
+generation 277  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.014875705177799426
+generation 278  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05644373650982459
+generation 279  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07631865316500931
+generation 280  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03989305334816812
+generation 281  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08161866259933293
+generation 282  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06445705240001218
+generation 283  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.061377767039113074
+generation 284  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.009346615713960981
+generation 285  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04628130973904387
+generation 286  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.021947826278138752
+generation 287  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05904167393576776
+generation 288  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.021712848567767562
+generation 289  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.019039903190253338
+generation 290  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09493108034128732
+generation 291  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.020785706566044705
+generation 292  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09082722440137098
+generation 293  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08216326911674281
+generation 294  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.01811572706585104
+generation 295  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0680660084068747
+generation 296  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09212244577810452
+generation 297  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06571359847430759
+generation 298  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.008344335157847849
+generation 299  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.010774091941446308
+generation 300  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0011895860613712617
+generation 301  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07877971819916592
+generation 302  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.019508282479605177
+generation 303  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03554211521710737
+generation 304  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09154777650599305
+generation 305  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08895178919512524
+generation 306  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07093362224949938
+generation 307  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.047708697233458996
+generation 308  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.057832641795689546
+generation 309  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0784622613456184
+generation 310  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07716118818039815
+generation 311  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0699549504659532
+generation 312  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.032252909898615026
+generation 313  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.050121981701482854
+generation 314  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.003842162667136029
+generation 315  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03125463640166239
+generation 316  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06880119297625681
+generation 317  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.043333964823646015
+generation 318  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0007622599326172708
+generation 319  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0951836819889321
+generation 320  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06097830352122577
+generation 321  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05116430572500537
+generation 322  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.006394371340145622
+generation 323  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04830143183527813
+generation 324  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04545046639499293
+generation 325  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.005973573690347312
+generation 326  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.01587870748526494
+generation 327  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.002257110188596556
+generation 328  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.02045626290246616
+generation 329  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05797037015869738
+generation 330  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09133560400470996
+generation 331  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.029579134734930613
+generation 332  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.006764689145521064
+generation 333  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0863987157650477
+generation 334  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03383966362885193
+generation 335  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07470878212506003
+generation 336  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.02462563771252071
+generation 337  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07769771391966893
+generation 338  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.060497234084808484
+generation 339  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08048581129021894
+generation 340  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.051054716886348564
+generation 341  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.020771115633278173
+generation 342  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.007682573076357913
+generation 343  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.018046060150027576
+generation 344  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06294467749222346
+generation 345  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07246955593143146
+generation 346  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.011216124257985505
+generation 347  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06238526833504792
+generation 348  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.050721857199317946
+generation 349  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06142901348796945
+generation 350  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09023803133387931
+generation 351  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07619306796916105
+generation 352  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.023558855725453
+generation 353  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.019954037668380088
+generation 354  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.002514600111144616
+generation 355  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.026104360852656983
+generation 356  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05583652909341277
+generation 357  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03721351159474817
+generation 358  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.022876229482216237
+generation 359  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07109079081189953
+generation 360  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04851807428650046
+generation 361  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.02032050561125941
+generation 362  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.013239999250832947
+generation 363  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06674400253196865
+generation 364  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0621190056167753
+generation 365  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09621550884175502
+generation 366  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09940921270142633
+generation 367  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04479624959419908
+generation 368  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.005531863350983557
+generation 369  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06544527109462757
+generation 370  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0003855069662665356
+generation 371  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04435905954485774
+generation 372  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04652950377915102
+generation 373  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09007567111410741
+generation 374  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08555795393263767
+generation 375  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06973733934066416
+generation 376  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.010053535880054622
+generation 377  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06830389157333297
+generation 378  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07224980854458823
+generation 379  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06690274212201183
+generation 380  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08116937313891587
+generation 381  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06695333378056931
+generation 382  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07382112892866724
+generation 383  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.02826137929795174
+generation 384  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.010057367764562154
+generation 385  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07625985643084855
+generation 386  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.004897774519146703
+generation 387  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.024152431443893643
+generation 388  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.012319309610737073
+generation 389  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0392194649987083
+generation 390  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0522974429505697
+generation 391  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.056004642378896366
+generation 392  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0012765287713937257
+generation 393  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08919689084694388
+generation 394  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07570252976338653
+generation 395  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.014526574852921026
+generation 396  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.007516974610956218
+generation 397  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04879969167916335
+generation 398  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.02282815829090439
+generation 399  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08217687983205507
+generation 400  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0005115854338363146
+generation 401  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.065014999465071
+generation 402  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08782994088419649
+generation 403  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.015915633758521553
+generation 404  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06860886496547253
+generation 405  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.054365172840272286
+generation 406  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09596212150543931
+generation 407  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09557125574232524
+generation 408  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06091671443082004
+generation 409  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.012046726047750445
+generation 410  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0869927440780271
+generation 411  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0511309078861078
+generation 412  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.008799693780670003
+generation 413  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0607011039030818
+generation 414  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0375840080131848
+generation 415  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09972923754990871
+generation 416  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06078703502368397
+generation 417  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03060053105592664
+generation 418  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.018772059968921975
+generation 419  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07104935705682919
+generation 420  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0706308563938791
+generation 421  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04412675727803078
+generation 422  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.014639369747404318
+generation 423  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04010036079140063
+generation 424  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.053924445182447246
+generation 425  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.002064397172841237
+generation 426  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0755232866209456
+generation 427  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0034726236053212014
+generation 428  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06223155316620176
+generation 429  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05921930428007608
+generation 430  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03595718680323048
+generation 431  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.014394925096135693
+generation 432  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.029911790673317853
+generation 433  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.027798617727242937
+generation 434  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07733503469232736
+generation 435  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.030672464990931236
+generation 436  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0032932664623619213
+generation 437  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09185668771741276
+generation 438  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05765570066848674
+generation 439  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0011122041893446234
+generation 440  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05953497684272029
+generation 441  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03983324885728552
+generation 442  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0101520556347935
+generation 443  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.033320788159974656
+generation 444  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.013687883473130082
+generation 445  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06115967490571783
+generation 446  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09987891164981542
+generation 447  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08762112374417225
+generation 448  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08224997824248556
+generation 449  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08182168109074578
+generation 450  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.013711188395230833
+generation 451  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09962231564446987
+generation 452  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.003762240636509007
+generation 453  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06191775375627493
+generation 454  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.028796349327114626
+generation 455  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.015195724382029053
+generation 456  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06382172658644923
+generation 457  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06110800926936244
+generation 458  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04358765564457356
+generation 459  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05249568347546917
+generation 460  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08969013381216935
+generation 461  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03971207693621773
+generation 462  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.012369120341134666
+generation 463  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.006353803608753761
+generation 464  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.017220294933048164
+generation 465  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03558695631792219
+generation 466  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.02622328761759242
+generation 467  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06467640899622513
+generation 468  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.009686217667433161
+generation 469  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08456756630594967
+generation 470  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.054757501343126194
+generation 471  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0953073847866034
+generation 472  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05680356422486817
+generation 473  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06626216298254428
+generation 474  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0662087763774779
+generation 475  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0940394180820615
+generation 476  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09530449737029198
+generation 477  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08579281156620579
+generation 478  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06980601980733316
+generation 479  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0277552655745857
+generation 480  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08378470026349957
+generation 481  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0013844487792040617
+generation 482  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08603518191277121
+generation 483  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06488125148564125
+generation 484  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.05684339171456587
+generation 485  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06121855983142063
+generation 486  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.0380970906497117
+generation 487  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09407678216723343
+generation 488  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.045643354168023634
+generation 489  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.018454324925295418
+generation 490  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.08049773823654016
+generation 491  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.039492410455236396
+generation 492  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.04396136119517378
+generation 493  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.005798249231504427
+generation 494  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07246767443243321
+generation 495  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09310898098189496
+generation 496  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03370804766044191
+generation 497  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09692838643248108
+generation 498  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.09703460295268285
+generation 499  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.03349429639311572
+generation 500  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.07009712061252087
+generation 501  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.054924907770874255
+generation 502  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.06794605847329244
+generation 503  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.019879672981618846
+generation 504  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2652
+mutating in range: 0.004835537273457514
+generation 505  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.013538224809290324
+generation 506  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0032748319140131436
+generation 507  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05932468684942898
+generation 508  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08225038539863642
+generation 509  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.050715839712243194
+generation 510  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.002794316134579378
+generation 511  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01367309690489319
+generation 512  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07356253300067138
+generation 513  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04838658432809615
+generation 514  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.020155848414468935
+generation 515  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04123743279814229
+generation 516  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07330260609572724
+generation 517  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08800646124610102
+generation 518  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07204560208073936
+generation 519  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07093353306190407
+generation 520  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.021220823213420725
+generation 521  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09021602129975437
+generation 522  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09415632014133427
+generation 523  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.075373630919045
+generation 524  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07896150369547744
+generation 525  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09065590994210405
+generation 526  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0667914163170616
+generation 527  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06342176986983249
+generation 528  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08457050710547981
+generation 529  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07108966588579374
+generation 530  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.012642294476532657
+generation 531  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0698546598572832
+generation 532  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.051191143741175185
+generation 533  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08572520294494862
+generation 534  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0314661249609657
+generation 535  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.020787122731219798
+generation 536  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04253820695814814
+generation 537  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0463220315775486
+generation 538  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01994371445738291
+generation 539  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.023606613633288944
+generation 540  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03720972483232842
+generation 541  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09671333443424039
+generation 542  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.056611559630808175
+generation 543  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.012887223277437621
+generation 544  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07258160243665683
+generation 545  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00428676166692149
+generation 546  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.040136927619414786
+generation 547  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08403797713691703
+generation 548  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08930043490594687
+generation 549  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.010252732643380913
+generation 550  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08704768602901485
+generation 551  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09622134482731207
+generation 552  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.053014656957373035
+generation 553  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.011642221737752458
+generation 554  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.014980556514905508
+generation 555  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.006687941712686785
+generation 556  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04177910985269772
+generation 557  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06721107696994724
+generation 558  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03719971434827625
+generation 559  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.028775238134080717
+generation 560  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0397984174991364
+generation 561  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03925341053793292
+generation 562  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0884713296537227
+generation 563  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.027924446513586776
+generation 564  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08722672611248045
+generation 565  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.014969727166614578
+generation 566  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08665697880718376
+generation 567  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09100839899497208
+generation 568  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.010744795794144746
+generation 569  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0782418481175834
+generation 570  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0799046239627747
+generation 571  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06895754090703292
+generation 572  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0971300325314529
+generation 573  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02505117196982658
+generation 574  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.012979608778485752
+generation 575  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09104472299987981
+generation 576  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06481136844853412
+generation 577  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00812158161051566
+generation 578  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.024085422615444163
+generation 579  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.020992982004914153
+generation 580  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.057051862518383206
+generation 581  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.037122944086856326
+generation 582  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07167310214338155
+generation 583  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.012795868206527172
+generation 584  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.071263113951385
+generation 585  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07840601851359817
+generation 586  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01245890236251327
+generation 587  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05423686476225773
+generation 588  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04278164319844213
+generation 589  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.026347121516287667
+generation 590  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08962794091119163
+generation 591  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09954012513283317
+generation 592  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08095868266380986
+generation 593  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.019378491448760006
+generation 594  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0703543930668241
+generation 595  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04849539297708381
+generation 596  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02634506106816549
+generation 597  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06035805061318076
+generation 598  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.008735342749444685
+generation 599  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.029488025742500302
+generation 600  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09419041206293184
+generation 601  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.008775259467778984
+generation 602  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.020296816573942434
+generation 603  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03609472225467784
+generation 604  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.057448573801326556
+generation 605  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02544892691401466
+generation 606  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.037952563748645085
+generation 607  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09445040645617964
+generation 608  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08846321041844615
+generation 609  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.016089254717489187
+generation 610  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05490097463596663
+generation 611  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.022843545400112464
+generation 612  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.010401177087597259
+generation 613  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09123216161870273
+generation 614  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02993563646534585
+generation 615  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06853571224565287
+generation 616  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05557794654172521
+generation 617  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08607160447104016
+generation 618  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04453034118231657
+generation 619  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04173014553545901
+generation 620  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09864898074216649
+generation 621  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.061458391061052824
+generation 622  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.061318151165005344
+generation 623  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03674700921305653
+generation 624  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03459986876484548
+generation 625  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06948041703125812
+generation 626  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08094434419389802
+generation 627  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06624477765016551
+generation 628  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01938013836587145
+generation 629  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.053373665733803005
+generation 630  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09076421330858563
+generation 631  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09204463056670162
+generation 632  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.013053798860049282
+generation 633  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08681023890330587
+generation 634  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04472587556123403
+generation 635  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08703268968318849
+generation 636  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02086553700566264
+generation 637  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08248363576540968
+generation 638  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09275407804559009
+generation 639  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08391783511526296
+generation 640  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03818533242407626
+generation 641  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09642473943109256
+generation 642  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.004745242133700678
+generation 643  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06121687251197266
+generation 644  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03428517850775744
+generation 645  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00046552582951676636
+generation 646  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.007352255902666249
+generation 647  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.008793648891573592
+generation 648  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0019463905040220109
+generation 649  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.053611849150913965
+generation 650  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06315353034586224
+generation 651  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.028650229795846728
+generation 652  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0869890330589725
+generation 653  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00020578297223103892
+generation 654  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03139095829636903
+generation 655  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06080608340595311
+generation 656  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0463400611436553
+generation 657  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07791357194436016
+generation 658  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.041986511279544426
+generation 659  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02633808571323273
+generation 660  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.056900242487588695
+generation 661  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.035586713507916326
+generation 662  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.025802426422255623
+generation 663  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04640092462555151
+generation 664  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0683414982358428
+generation 665  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.043252026073751795
+generation 666  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.041578361203834104
+generation 667  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07527146003431626
+generation 668  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06871986835678773
+generation 669  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09215341817733935
+generation 670  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07852639951141026
+generation 671  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03147057640402341
+generation 672  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05748011955020761
+generation 673  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01923681600882562
+generation 674  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01535302508848805
+generation 675  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09303356516543694
+generation 676  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.027453415385924454
+generation 677  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09505423850252943
+generation 678  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.016810005756287362
+generation 679  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06860928300298878
+generation 680  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.004685700909972934
+generation 681  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04041794566513009
+generation 682  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05758018222640881
+generation 683  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.038281558453471136
+generation 684  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00795132102178725
+generation 685  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06941859389760478
+generation 686  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07672598970746436
+generation 687  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.024035728262110534
+generation 688  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09453370854465767
+generation 689  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.056362548349411026
+generation 690  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05966216851729376
+generation 691  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05206113522735628
+generation 692  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.024891567877809797
+generation 693  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04171850638075761
+generation 694  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06244623100161109
+generation 695  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04937826520001812
+generation 696  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0635352716263545
+generation 697  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04743912627651386
+generation 698  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.010594456208044101
+generation 699  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05036265391883715
+generation 700  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0013059944867266473
+generation 701  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.007269307445540274
+generation 702  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09547618088694715
+generation 703  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05675215069677595
+generation 704  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05282647150112592
+generation 705  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05218537411414902
+generation 706  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0416411907885093
+generation 707  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09978978459034016
+generation 708  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.032470533751996766
+generation 709  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.032595068093864143
+generation 710  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.043086063337094076
+generation 711  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.047179292349494806
+generation 712  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0455888598539701
+generation 713  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.061399175848996845
+generation 714  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07247700942653085
+generation 715  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06071003870334969
+generation 716  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.006222317790433441
+generation 717  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05839237398097531
+generation 718  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08540298755395093
+generation 719  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08521077696282424
+generation 720  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07796939880951503
+generation 721  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09957190619996893
+generation 722  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.003167133408115952
+generation 723  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.030779132616104668
+generation 724  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.018126923965731435
+generation 725  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0030809110045984635
+generation 726  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0176609021505602
+generation 727  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.020794155283075114
+generation 728  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04407296156364552
+generation 729  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.028076183299609682
+generation 730  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.003402934156700366
+generation 731  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0903099208367999
+generation 732  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04522201661504989
+generation 733  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01886323843176926
+generation 734  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04099695426602448
+generation 735  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04506736189782948
+generation 736  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.058681242296022895
+generation 737  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06513702878128153
+generation 738  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05250991128355906
+generation 739  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.024157058206478257
+generation 740  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09091128231050971
+generation 741  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06876683548627571
+generation 742  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02750477509227386
+generation 743  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08220849491578315
+generation 744  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.049569686475098546
+generation 745  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.032260501068610725
+generation 746  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09432757916044454
+generation 747  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0057475155909062275
+generation 748  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08261798443222092
+generation 749  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.017879111938639315
+generation 750  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05927854664857374
+generation 751  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08688267610687317
+generation 752  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09295065683008134
+generation 753  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.017132786955777368
+generation 754  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.002231520797802955
+generation 755  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07106760267305512
+generation 756  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03907496854037717
+generation 757  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04398213351913541
+generation 758  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08553525806807938
+generation 759  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04106365903650745
+generation 760  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05182415901233376
+generation 761  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04173998775986246
+generation 762  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.012985360817118485
+generation 763  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04560828923380501
+generation 764  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0952365085727447
+generation 765  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0008520469494480599
+generation 766  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.016736366100554092
+generation 767  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.044063815211082984
+generation 768  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07375100128980765
+generation 769  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.048798097329610636
+generation 770  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.010110392185437979
+generation 771  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08164730968986056
+generation 772  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06903088855388018
+generation 773  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09005779569639735
+generation 774  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07764559218311584
+generation 775  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05081679656802071
+generation 776  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0020526106408994883
+generation 777  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.012892842087770051
+generation 778  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.016502161091141398
+generation 779  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03493277281815257
+generation 780  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08351548437703478
+generation 781  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0036256089643619486
+generation 782  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03384985933799393
+generation 783  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05498942513389038
+generation 784  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09338058463543412
+generation 785  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04543426332044958
+generation 786  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0418514279431984
+generation 787  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01986749668708907
+generation 788  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00161021342430846
+generation 789  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04517029019346944
+generation 790  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.053203790273745624
+generation 791  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00904798607452545
+generation 792  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08807630886687084
+generation 793  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.017388710408760822
+generation 794  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06545487600054267
+generation 795  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06884076463514349
+generation 796  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06767832353578822
+generation 797  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09944779589916654
+generation 798  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04552631676068092
+generation 799  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05114843226387006
+generation 800  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05321793565080593
+generation 801  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08158219834338282
+generation 802  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07246115889600566
+generation 803  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.026463510073728904
+generation 804  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05112101245781844
+generation 805  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0015912776117538053
+generation 806  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0590174672374583
+generation 807  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.004516458515381372
+generation 808  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.052908010049498994
+generation 809  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.019252248855684474
+generation 810  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.037289948455277735
+generation 811  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09997745141023415
+generation 812  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09708590152516249
+generation 813  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05845468300198926
+generation 814  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09128101558063081
+generation 815  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.049447646642981895
+generation 816  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.005162793282935807
+generation 817  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0432743719862376
+generation 818  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03876205563967803
+generation 819  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0523210800988733
+generation 820  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09339845234092564
+generation 821  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04144974633004076
+generation 822  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08756757485363148
+generation 823  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08091559317181968
+generation 824  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.017335752988873965
+generation 825  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01638264648328144
+generation 826  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06901201663509762
+generation 827  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0895444410339955
+generation 828  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0448493352655638
+generation 829  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01115858971039927
+generation 830  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09120071328820115
+generation 831  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05239243932030151
+generation 832  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07599841731706242
+generation 833  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04170320449468123
+generation 834  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.009423698220296773
+generation 835  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09030080733743319
+generation 836  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04076825304442547
+generation 837  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.042876912088547284
+generation 838  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07696766384587977
+generation 839  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07873584255888633
+generation 840  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06084619380454286
+generation 841  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06827385781970256
+generation 842  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01770554764837833
+generation 843  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08879597846405751
+generation 844  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08496519067169406
+generation 845  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06268269210143011
+generation 846  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.015840458962070758
+generation 847  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02688924462489132
+generation 848  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08945972788364263
+generation 849  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.005397644972000404
+generation 850  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.017103626183552136
+generation 851  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0352071552231454
+generation 852  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01103239431434987
+generation 853  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.021593964481705166
+generation 854  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03215320834664771
+generation 855  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09188483680602577
+generation 856  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03292133984078084
+generation 857  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0034063075162013793
+generation 858  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01754981697571342
+generation 859  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.011063021586330359
+generation 860  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00033272226588826337
+generation 861  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.041439781902872314
+generation 862  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.009240120632493664
+generation 863  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0036055082921462645
+generation 864  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.020715182057510186
+generation 865  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.060239224952181675
+generation 866  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02346113523208848
+generation 867  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07159109620604186
+generation 868  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02984735590792358
+generation 869  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.014137619913455524
+generation 870  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0654738950227394
+generation 871  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.003092450907858502
+generation 872  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0225739520927565
+generation 873  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05689071992022102
+generation 874  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06515239262357184
+generation 875  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05545643502718848
+generation 876  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0391560989857041
+generation 877  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01847557932163285
+generation 878  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0054251480404455266
+generation 879  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04380842574920503
+generation 880  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08187897031404885
+generation 881  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.017618149634089097
+generation 882  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.035727310177050955
+generation 883  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05303220754134485
+generation 884  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04361959739134297
+generation 885  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.014064012442367225
+generation 886  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0029139338751738688
+generation 887  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0710452450736712
+generation 888  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.049872741695177615
+generation 889  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.058253729174371244
+generation 890  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03234300427251662
+generation 891  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.011765086356787448
+generation 892  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07091918998734673
+generation 893  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03217012844751691
+generation 894  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.088599059368417
+generation 895  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01730579981934658
+generation 896  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.018932777210467922
+generation 897  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.012716501958810723
+generation 898  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.012221303510952264
+generation 899  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 6.0983033529937726e-05
+generation 900  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03771832590871132
+generation 901  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0031476151950868394
+generation 902  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07267037712412262
+generation 903  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09973376886078804
+generation 904  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08209038200939728
+generation 905  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.019239767969785417
+generation 906  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0933673206320369
+generation 907  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08828511731994028
+generation 908  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05321261465364629
+generation 909  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05030338125077552
+generation 910  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0878403088349933
+generation 911  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06856226853895613
+generation 912  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08696206460789331
+generation 913  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0504967992264574
+generation 914  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04745763689358928
+generation 915  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07185254752405869
+generation 916  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.009785817531373387
+generation 917  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0974011464190272
+generation 918  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05058537609539147
+generation 919  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0879946176242689
+generation 920  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06871632509844482
+generation 921  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.007273428937394577
+generation 922  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01590165719329403
+generation 923  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02591072928070394
+generation 924  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04532138387584919
+generation 925  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.034964438959729914
+generation 926  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0039740667199994585
+generation 927  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05311147317820763
+generation 928  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06188572258750152
+generation 929  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02462445859222964
+generation 930  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.00024320952552863153
+generation 931  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08396919774788329
+generation 932  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.020778486830277845
+generation 933  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03275780259180503
+generation 934  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07195083466538217
+generation 935  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0570554630000577
+generation 936  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03959995395884604
+generation 937  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05425134910620573
+generation 938  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0857078945993375
+generation 939  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.033892362616097904
+generation 940  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06925848226044022
+generation 941  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.009837886602703183
+generation 942  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02984505077028049
+generation 943  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.07843776806837674
+generation 944  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.040479789489440976
+generation 945  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.08157493172931128
+generation 946  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0038824983005636307
+generation 947  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0866396432967179
+generation 948  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05737839438871815
+generation 949  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03196718452726003
+generation 950  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03422006280066658
+generation 951  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03087692047084202
+generation 952  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.023998320391835994
+generation 953  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06957623132472288
+generation 954  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.01938756295506431
+generation 955  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.038833829058097714
+generation 956  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.035771518980669215
+generation 957  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.02852227691506537
+generation 958  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.05442304662521459
+generation 959  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09226206407960143
+generation 960  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.06863745907011023
+generation 961  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.049647946484714205
+generation 962  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.0531269152958023
+generation 963  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.04759490444065875
+generation 964  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.006694200879298196
+generation 965  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.03318566526816735
+generation 966  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.043585018357992326
+generation 967  test set: 0 evaluating performances||||||||||||||| done!  best: 0.2653
+mutating in range: 0.09349270681476751
+slurmstepd: error: *** STEP 54652489.0 ON bnode032 CANCELLED AT 2023-05-18T12:54:37 DUE TO TIME LIMIT ***
