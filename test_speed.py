@@ -1,26 +1,28 @@
-import numpy as np
-import time
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
+def send_email():
+    email = "hannes.thurnherr@gmail.com"  # Replace with your email
+    password = "fzyjdoudtgpipwah"  # Replace with your email password
+    to_email = "hannes.thurnherr@gmail.com"
 
-def speedtest(dim):
-    start = time.time()
+    subject = "Test Email"
+    message = "This is a test email to check the functionality."
 
+    msg = MIMEMultipart()
+    msg["From"] = email
+    msg["To"] = to_email
+    msg["Subject"] = subject
 
+    msg.attach(MIMEText(message, 'plain'))
 
-    matrix = np.random.rand(dim,dim)
-    coord = np.random.rand(dim,2)
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.starttls()
+    server.login(email, password)
+    text = msg.as_string()
+    server.sendmail(email, to_email, text)
+    server.quit()
 
-    def dist(a, b):
-        d = np.linalg.norm(a - b)
-        #d = np.sqrt(np.square(a[1] - b[1]) + np.square(a[0] - b[0]))
-        return d
-
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
-            if i != j:
-                if np.random.rand() < 1 / (dist(coord[i], coord[j]) ** 3) * 0.0000000023:
-                    matrix[i][j] = (np.random.rand() * 4) - 2
-
-
-    print("time:",time.time()-start)
-
+if __name__ == "__main__":
+    send_email()

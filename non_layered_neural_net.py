@@ -1,5 +1,4 @@
 import os
-
 import numpy as np
 import matplotlib.pyplot as plt
 import psutil as psutil
@@ -206,8 +205,8 @@ class nlnn:
     def sigmoid(self, x):
         return scipy.special.expit(x) * 2 - 1
 
-    def relu(self, x):
-        return x * (x > 0)
+        def relu(self, x):
+            return x * (x > 0)
 
     def leaky_relu(self, x):
         return np.where(x > 0, x, x * 0.01)
@@ -232,6 +231,10 @@ class nlnn:
         elif activation_function == "leaky_relu":
             self.neuron_values = self.leaky_relu(self.adj_matrix.T.dot(self.neuron_values.T).T)
             self.neuron_values[:, :x.shape[1]] = x
+
+    """
+    
+    """
 
     def get_output(self):
         return self.neuron_values[:, -self.output_neurons:]
@@ -263,17 +266,12 @@ class nlnn:
             pass
         self.neuron_values = np.zeros((len(x), self.dim_matrix))
         self.neuron_values[:, :x.shape[1]] = x
-        #print("before propagation", get_memory_usage(), "MB")
         for i in range(steps):
             self.prop_step(x, activation_function = activation_function)
-        #print("after prpagation", get_memory_usage(), "MB")
         result = self.get_output()
-        #print("after getoutput()", get_memory_usage(), "MB")
         prediction = np.argmax(result, axis=1)
         prediction = np.eye(self.output_neurons)[prediction]
-        #print("after prediction", get_memory_usage(), "MB")
         self.neuron_values = np.zeros(self.neuron_values.shape)
-        #print("after neuron_value reset", get_memory_usage(), "MB")
         self.adj_matrix = csr_matrix(self.adj_matrix)
 
         return prediction, result

@@ -1,14 +1,13 @@
 #!/bin/bash
 #SBATCH --mail-user=hannes.thurnherr@gmail.com
-#SBATCH --mail-type=end,fail
+#SBATCH --mail-type=end,fail,start
 #SBATCH --job-name="full_run"
-#SBATCH --time=48:00:00
-#SBATCH --mem-per-cpu=50G
+#SBATCH --time=72:00:00
+#SBATCH --mem-per-cpu=100G
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
-#SBATCH --array=1-30
+#SBATCH --array=1-100
 #SBATCH --output=slurm-%j.out
-#SBATCH --error=slurm-%j.err
 
 # Test: Echo statements
 echo "Script started"
@@ -39,7 +38,7 @@ echo "Test Python execution:"
 python -c "print('Hello, World!')"
 
 # Run the python script and capture its output and any errors
-python sequential_parameter_search.py ${param_a} >> log_${param_a}.txt 2>&1
+python -u grid_parameter_search_local.py ${param_a} >> log_${param_a}.txt 2>&1
 
 # Check if the python script ran successfully
 if [ $? -ne 0 ]; then

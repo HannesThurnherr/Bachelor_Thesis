@@ -197,8 +197,8 @@ y_test_ohe = one_hot_encode(test_y)
 x_train = train_X.reshape(len(train_X), 28*28)
 x_test = test_X.reshape(len(test_X), 28*28)
 
-x_test = np.array_split(x_test, 1)
-y_test_ohe = np.array_split(y_test_ohe, 1)
+x_test = np.array_split(x_test, 10)
+y_test_ohe = np.array_split(y_test_ohe, 10)
 
 
 # In[9]:
@@ -300,7 +300,7 @@ for gen in range(generations):
     print("generation "+str(len(performance_over_time)+1), end=" ")
 
     if False and config["multiple_training_sets"] == "yes" and len(performance_over_time)%100 == 0 and gen!=0:
-        test_set = np.random.randint(4)
+        test_set = np.random.randint(10)
     test_sets_used.append(test_set)
     print(" test set:",test_set,end=" ")
     networks = evaluate_performance(networks, x_test[test_set], y_test_ohe[test_set])
